@@ -20,11 +20,10 @@ Sports
 -golf
 -men's
 -women's
--sports
--athletics
--spinning
 -quidditch
--outdoors
+-intramural
+-skiing, nordic
+-skiing, alpine
 
 Activities
 -yoga
@@ -32,12 +31,14 @@ Activities
 -climbing
 -hiking 
 -screening
+-outdoors
+-spinning
 
 Arts/ Performance
 -dance
 -music
 -orchestra
--play
+-theater
 -musical
 -a capella 
 -choir
@@ -50,7 +51,7 @@ Arts/ Performance
 -band
 -film
 -poetry
--spoken word
+-concert
 
 
 Other 

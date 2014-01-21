@@ -63,9 +63,30 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 		Description: <br><textarea name="eventDescr" rows="5" cols="40" maxlength="200"/></textarea><br><br>
 		
+		<input type="checkbox" name="tag" value="mens"/>Men's<br>
+		<input type="checkbox" name="tag" value="womens"/>Women's<br>
+		<input type="checkbox" name="tag" value="varsity"/>Varsity<br>
+		<input type="checkbox" name="tag" value="jv"/>JV<br>
+		<input type="checkbox" name="tag" value="baseball"/>Baseball<br>
 		<input type="checkbox" name="tag" value="basketball"/>Basketball<br>
+		<input type="checkbox" name="tag" value="crossCountry"/>Cross Country<br>
+		<input type="checkbox" name="tag" value="football"/>Football<br>
+		<input type="checkbox" name="tag" value="frisbee"/>Frisbee<br>
+		<input type="checkbox" name="tag" value="golf"/>Golf<br>
+		<input type="checkbox" name="tag" value="hockey"/>Hockey<br>
+		<input type="checkbox" name="tag" value="intramural"/>Intramural<br>
+		<input type="checkbox" name="tag" value="paddleball"/>Paddleball<br>
+		<input type="checkbox" name="tag" value="quidditch"/>Quidditch<br>
+		<input type="checkbox" name="tag" value="alpine"/>Skiing, alpine<br>
+		<input type="checkbox" name="tag" value="nordic"/>Skiing, nordic<br>
+		<input type="checkbox" name="tag" value="soccer"/>Soccer<br>
+		<input type="checkbox" name="tag" value="softball"/>Softball<br>
+		<input type="checkbox" name="tag" value="tennis"/>Tennis<br>
+		<input type="checkbox" name="tag" value="track"/>Track<br>
+		<input type="checkbox" name="tag" value="waterPolo"/>Water Polo<br>
+		
 		<input type="submit" value="Submit"/>
-		</form>		
+		</form>
 	</body>
 
 </html>
