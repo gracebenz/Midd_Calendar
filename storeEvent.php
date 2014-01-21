@@ -16,8 +16,8 @@ define('DB_DATABASE', 'khihuac_Calendar');
 
 $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
-$sql = "INSERT INTO Events (EID, Name, Date, Time, Location, Organization, Description) 
-VALUES ('$_POST[EID]', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[eventTime]', '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
+$sql = "INSERT INTO Events (EID, Name, Date, startTime, endTime, Location, Organization, Description) 
+VALUES ('$_POST[EID]', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]', '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
 
 echo $sql;
 

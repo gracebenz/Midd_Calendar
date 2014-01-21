@@ -23,9 +23,9 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		
 		<!--calendar widget-->		
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="/resources/demos/style.css">
 		<script>
 		$(function() {
@@ -35,10 +35,12 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<!---->
 
 		<!--time widget-->
-		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></script>
-        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		
+
         <link rel="stylesheet" type="text/css" href="jquery.ptTimeSelect.css" />
         <script type="text/javascript" src="jquery.ptTimeSelect.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></script>
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		
     	<script type="text/javascript">
         $(document).ready(function(){
@@ -62,7 +64,9 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 			<input type="radio" name="locationAppr" value="approved"/>Yes
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
-		Description: <br><textarea name="eventDescr" rows="5" cols="40" maxlength="200"/></textarea><br><br>
+
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br><br>
+
 		
 		<h3>Tags</h3>
 		
