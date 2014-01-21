@@ -41,7 +41,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		
     	<script type="text/javascript">
         $(document).ready(function(){
-            $('input[name="eventTime"]').ptTimeSelect();
+            $('input[name="startEventTime"]').ptTimeSelect();
         });
     	</script>
 		<!---->	
@@ -54,7 +54,8 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		EID: <input type="text" name="EID" required/><br><br>
 		Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
-		Time: <input type="text" name="eventTime" required/><br><br>
+		Start Time: <input type="text" name="startEventTime" required/><br><br>
+		End Time: <input type="text" name="endEventTime" required/><br><br>
 		Location: <input type="text" name="eventLocation" required/><br><br>
 		Do you have this location reserved?:<br>
 			<input type="radio" name="locationAppr" value="approved"/>Yes
