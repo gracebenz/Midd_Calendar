@@ -18,6 +18,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 
 <html>
 	<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 		<title>Event Entry</title>
 		
 		<!--calendar widget-->		
@@ -48,7 +49,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 	</head>
 
 	<body>
-		<h3>Create an Event</h3>
+		<h2>Create an Event</h2>
 	
 		<form action="storeEvent.php" method="post">
 		EID: <input type="text" name="EID" required/><br><br>
@@ -63,6 +64,10 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 		Description: <br><textarea name="eventDescr" rows="5" cols="40" maxlength="200"/></textarea><br><br>
 		
+		<h3>Tags</h3>
+		
+		<div>
+		<h4>Athletics</h4>
 		<input type="checkbox" name="tag" value="mens"/>Men's<br>
 		<input type="checkbox" name="tag" value="womens"/>Women's<br>
 		<input type="checkbox" name="tag" value="varsity"/>Varsity<br>
@@ -83,7 +88,53 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="softball"/>Softball<br>
 		<input type="checkbox" name="tag" value="tennis"/>Tennis<br>
 		<input type="checkbox" name="tag" value="track"/>Track<br>
-		<input type="checkbox" name="tag" value="waterPolo"/>Water Polo<br>
+		<input type="checkbox" name="tag" value="waterPolo"/>Water Polo<br><br>
+		</div>
+		
+		<div>
+		<h4>Activities</h4>
+		<input type="checkbox" name="tag" value="climbing"/>Climbing<br>
+		<input type="checkbox" name="tag" value="hiking"/>Hiking<br>
+		<input type="checkbox" name="tag" value="outdoors"/>Outdoors<br>
+		<input type="checkbox" name="tag" value="screening"/>Screening<br>
+		<input type="checkbox" name="tag" value="spinning"/>Spinning<br>
+		<input type="checkbox" name="tag" value="yoga"/>Yoga<br>
+		<input type="checkbox" name="tag" value="zumba"/>Zumba<br><br>
+		</div>
+		
+		<div>
+		<h4>Arts / Performance</h4>
+		<input type="checkbox" name="tag" value="acapella"/>A capella<br>
+		<input type="checkbox" name="tag" value="band"/>Band<br>
+		<input type="checkbox" name="tag" value="ceramics"/>Ceramics<br>
+		<input type="checkbox" name="tag" value="choir"/>Choir<br>
+		<input type="checkbox" name="tag" value="concert"/>Concert<br>
+		<input type="checkbox" name="tag" value="dance"/>Dance<br>
+		<input type="checkbox" name="tag" value="drawing"/>Drawing<br>
+		<input type="checkbox" name="tag" value="film"/>Film<br>
+		<input type="checkbox" name="tag" value="gallery"/>Gallery<br>
+		<input type="checkbox" name="tag" value="live"/>Live<br>
+		<input type="checkbox" name="tag" value="music"/>Music<br>
+		<input type="checkbox" name="tag" value="musical"/>Musical<br>
+		<input type="checkbox" name="tag" value="orchestra"/>Skiing, nordic<br>
+		<input type="checkbox" name="tag" value="painting"/>Painting<br>
+		<input type="checkbox" name="tag" value="piano"/>Piano<br>
+		<input type="checkbox" name="tag" value="poetry"/>Poetry / spoken word<br>
+		<input type="checkbox" name="tag" value="theater"/>Theater<br>
+		<input type="checkbox" name="tag" value="track"/>Track<br><br>
+		</div>
+		
+		<div>
+		<h4>Other</h4>
+		<input type="checkbox" name="tag" value="animals"/>Animals<br>
+		<input type="checkbox" name="tag" value="career"/>Career<br>
+		<input type="checkbox" name="tag" value="cultural"/>Cultural<br>
+		<input type="checkbox" name="tag" value="internship"/>Internship<br>
+		<input type="checkbox" name="tag" value="food"/>Food<br>
+		<input type="checkbox" name="tag" value="lecture"/>Lecture<br>
+		<input type="checkbox" name="tag" value="lgbt"/>LGBT<br>
+		<input type="checkbox" name="tag" value="recruiting"/>Recruiting<br><br>
+		</div>
 		
 		<input type="submit" value="Submit"/>
 		</form>
