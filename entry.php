@@ -63,6 +63,9 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 		Description: <br><textarea name="eventDescr" rows="5" cols="40" maxlength="200"/></textarea><br><br>
 		Enter tags separated by commas: <br><textarea name="eventTags" rows="5" cols="40"/></textarea><br><br>
+		<input type="checkbox" name="tag" value="swimming">Swimming<br>
+		
+		
 		<input type="submit" value="Submit"/>
 		</form>		
 	</body>
