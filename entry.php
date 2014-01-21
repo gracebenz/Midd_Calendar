@@ -132,12 +132,19 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<h4>Other</h4>
 		<input type="checkbox" name="tag" value="animals"/>Animals<br>
 		<input type="checkbox" name="tag" value="career"/>Career<br>
+		<input type="checkbox" name="tag" value="comedy"/>Comedy / improv<br>
 		<input type="checkbox" name="tag" value="cultural"/>Cultural<br>
-		<input type="checkbox" name="tag" value="internship"/>Internship<br>
 		<input type="checkbox" name="tag" value="food"/>Food<br>
+		<input type="checkbox" name="tag" value="gluten"/>Gluten-free<br>
+		<input type="checkbox" name="tag" value="internship"/>Internship<br>
 		<input type="checkbox" name="tag" value="lecture"/>Lecture<br>
 		<input type="checkbox" name="tag" value="lgbt"/>LGBT<br>
+		<input type="checkbox" name="tag" value="nightlife"/>Nightlife<br>
+		<input type="checkbox" name="tag" value="plusone"/>Plus-one<br>
 		<input type="checkbox" name="tag" value="recruiting"/>Recruiting<br><br>
+		<input type="checkbox" name="tag" value="religion"/>Religion<br>
+		<input type="checkbox" name="tag" value="science"/>Science<br>
+		<input type="checkbox" name="tag" value="singles"/>Singles<br>
 		</div>
 		
 		<input type="submit" value="Submit"/>

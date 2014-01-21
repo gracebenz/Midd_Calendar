@@ -64,9 +64,7 @@ Other
 -religion
 -science
 -nightlife
--comedy
--improv
+-comedy/improv
 -gluten-free
 -plus-one
 -singles
-
