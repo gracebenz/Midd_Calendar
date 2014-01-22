@@ -19,6 +19,9 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 $sql = "INSERT INTO Events (EID, Name, Date, startTime, endTime, Location, Organization, Description) 
 VALUES ('$_POST[EID]', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]', '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
 
+$sql = "INSERT INTO Tags (Tag_Name, EID)
+VALUES ('$_POST[tag]', $_POST[EID]')"; 
+
 echo $sql;
 
 if (!mysqli_query($con, $sql)) {
