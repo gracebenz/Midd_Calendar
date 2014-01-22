@@ -33,6 +33,7 @@ January 2014
 			define('DB_PASSWORD', '12345abcde');
 			define('DB_DATABASE', 'khihuac_Calendar');
 
+
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 			$sql = "SELECT * FROM Events";
 			//echo "connected";
@@ -40,11 +41,24 @@ January 2014
 				die('Error: ' . mysqli_error());
 			} else {
 				$result = mysqli_query($con, $sql);
+				if ($result){
+					echo "yep";
+					$row=mysqli_fetch_array($result);
+					
+					echo $row[Name]; 
+					
+					}
+					else {
+					echo "nope";
+					}
+
 			}
 			//echo "test";
 			while($row = mysqli_fetch_array($result)) {
 	   		// Write the value of the column (which is now in the array $row)
-	 			echo $row[eventName] . "<br>";
+
+	 			echo $row[Name]; 
+
 	  		}
 			mysqli_close($con);
 		?>

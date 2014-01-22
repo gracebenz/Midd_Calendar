@@ -31,7 +31,9 @@ $sql_2 = "INSERT INTO Tags (Tag_Name, EID)
 VALUES ('$_POST[tag]', $_POST[EID]')"; 
 
 echo $sql;
-echo $sql_2;
+
+echo $sql_2; 
+
 
 if (!mysqli_query($con, $sql)) {
 	die('Error: ' . mysqli_error($con));
