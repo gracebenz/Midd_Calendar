@@ -34,7 +34,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		</script>
 		<!---->
 
-		<!--time widget-->
+		<!--time widget
         <link rel="stylesheet" type="text/css" href="jquery.ptTimeSelect.css" />
         <script type="text/javascript" src="jquery.ptTimeSelect.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></script>
@@ -46,7 +46,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
             $('input[name="endEventTime"]').ptTimeSelect();
         });
     	</script>
-		<!---->	
+		-->	
 	</head>
 
 	<body>
@@ -56,6 +56,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		</div>
 		
 		<div class="left"></div>
+		<div class="right"></div>
 		<div id="footer"></div>
 		
 	
@@ -145,7 +146,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="gluten"/>Gluten-free<br>
 		<input type="checkbox" name="tag" value="internship"/>Internship<br>
 		<input type="checkbox" name="tag" value="lecture"/>Lecture<br>
-		<input type="checkbox" name="tag" value="lgbt"/>LGBT<br>
+		<input type="checkbox" name="tag" value="lgbtq"/>LGBTQ<br>
 		<input type="checkbox" name="tag" value="nightlife"/>Nightlife<br>
 		<input type="checkbox" name="tag" value="plusone"/>Plus-one<br>
 		<input type="checkbox" name="tag" value="recruiting"/>Recruiting<br>
