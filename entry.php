@@ -57,6 +57,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		
 		<div class="left"></div>
 		<div id="footer"></div>
+		
 	
 		<div id="forms">
 		<form action="storeEvent.php" method="post">
@@ -154,7 +155,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 	</div>
 		
 		<br>
-		<span id="submit"><input type="submit" value="Create"/></span>
+		<input type="submit" value="Create"/>
 		</form>
 	</body>
 
