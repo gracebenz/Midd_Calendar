@@ -18,8 +18,8 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-		<title>Event Entry</title>
+		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
+		<title>Create An Event</title>
 		
 		<!--calendar widget-->		
 		<meta charset="utf-8">
@@ -35,8 +35,6 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<!---->
 
 		<!--time widget-->
-		
-
         <link rel="stylesheet" type="text/css" href="jquery.ptTimeSelect.css" />
         <script type="text/javascript" src="jquery.ptTimeSelect.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></script>
@@ -45,14 +43,23 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
     	<script type="text/javascript">
         $(document).ready(function(){
             $('input[name="startEventTime"]').ptTimeSelect();
+            $('input[name="endEventTime"]').ptTimeSelect();
         });
     	</script>
 		<!---->	
 	</head>
 
 	<body>
-		<h2>Create an Event</h2>
 	
+		<div id="header">
+			<h2>Create an Event</h2>
+		</div>
+		
+		<div class="left"></div>
+		<div id="footer"></div>
+		
+	
+		<div id="forms">
 		<form action="storeEvent.php" method="post">
 		EID: <input type="text" name="EID" required/><br><br>
 		Event name: <input type="text" name="eventName" required/><br><br>
@@ -65,12 +72,13 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 
-		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br><br>
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br>
+		</div>
 
 		
 		<h3>Tags</h3>
 		
-		<div>
+		<div id="athletics">
 		<h4>Athletics</h4>
 		<input type="checkbox" name="tag" value="mens"/>Men's<br>
 		<input type="checkbox" name="tag" value="womens"/>Women's<br>
@@ -92,10 +100,10 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="softball"/>Softball<br>
 		<input type="checkbox" name="tag" value="tennis"/>Tennis<br>
 		<input type="checkbox" name="tag" value="track"/>Track<br>
-		<input type="checkbox" name="tag" value="waterPolo"/>Water Polo<br><br>
+		<input type="checkbox" name="tag" value="waterPolo"/>Water Polo<br>
 		</div>
 		
-		<div>
+		<div id="activities">
 		<h4>Activities</h4>
 		<input type="checkbox" name="tag" value="climbing"/>Climbing<br>
 		<input type="checkbox" name="tag" value="hiking"/>Hiking<br>
@@ -103,10 +111,10 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="screening"/>Screening<br>
 		<input type="checkbox" name="tag" value="spinning"/>Spinning<br>
 		<input type="checkbox" name="tag" value="yoga"/>Yoga<br>
-		<input type="checkbox" name="tag" value="zumba"/>Zumba<br><br>
+		<input type="checkbox" name="tag" value="zumba"/>Zumba<br>
 		</div>
 		
-		<div>
+		<div id="performance">
 		<h4>Arts / Performance</h4>
 		<input type="checkbox" name="tag" value="acapella"/>A capella<br>
 		<input type="checkbox" name="tag" value="band"/>Band<br>
@@ -120,15 +128,14 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="live"/>Live<br>
 		<input type="checkbox" name="tag" value="music"/>Music<br>
 		<input type="checkbox" name="tag" value="musical"/>Musical<br>
-		<input type="checkbox" name="tag" value="orchestra"/>Skiing, nordic<br>
 		<input type="checkbox" name="tag" value="painting"/>Painting<br>
 		<input type="checkbox" name="tag" value="piano"/>Piano<br>
 		<input type="checkbox" name="tag" value="poetry"/>Poetry / spoken word<br>
 		<input type="checkbox" name="tag" value="theater"/>Theater<br>
-		<input type="checkbox" name="tag" value="track"/>Track<br><br>
+		<input type="checkbox" name="tag" value="track"/>Track<br>
 		</div>
 		
-		<div>
+		<div id="other">
 		<h4>Other</h4>
 		<input type="checkbox" name="tag" value="animals"/>Animals<br>
 		<input type="checkbox" name="tag" value="career"/>Career<br>
@@ -141,13 +148,14 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="lgbt"/>LGBT<br>
 		<input type="checkbox" name="tag" value="nightlife"/>Nightlife<br>
 		<input type="checkbox" name="tag" value="plusone"/>Plus-one<br>
-		<input type="checkbox" name="tag" value="recruiting"/>Recruiting<br><br>
+		<input type="checkbox" name="tag" value="recruiting"/>Recruiting<br>
 		<input type="checkbox" name="tag" value="religion"/>Religion<br>
 		<input type="checkbox" name="tag" value="science"/>Science<br>
 		<input type="checkbox" name="tag" value="singles"/>Singles<br>
-		</div>
+	</div>
 		
-		<input type="submit" value="Submit"/>
+		<br>
+		<input type="submit" value="Create"/>
 		</form>
 	</body>
 
