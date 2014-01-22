@@ -23,7 +23,7 @@ January 2014
 			document.write(weekday[d.getDay()] + ", ")
 			document.write(monthname[d.getMonth()] + " ")
 			document.write(d.getDate() + ", ")
-			document.write(d.getFullYear())
+			document.write(d.getFullYear() + "<br>")
 		</script>
 		
 		
@@ -44,10 +44,12 @@ January 2014
 			//echo "test";
 			while($row = mysqli_fetch_array($result)) {
 	   		// Write the value of the column (which is now in the array $row)
-	 			echo $row['eventName'] . "<br>";
+	 			echo $row[eventName] . "<br>";
 	  		}
 			mysqli_close($con);
 		?>
+		
+		
 
 		
 		
