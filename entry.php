@@ -62,7 +62,6 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 	
 		<div id="forms">
 		<form action="storeEvent.php" method="post">
-		EID: <input type="text" name="EID" required/><br><br>
 		Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
 		Start Time (hh:mm AM/PM) <input type="text" name="startEventTime" required/><br><br>

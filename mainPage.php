@@ -35,30 +35,43 @@ January 2014
 
 
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
-			$sql = "SELECT * FROM Events";
-			//echo "connected";
+			$sql = "SELECT * FROM Events WHERE Date='01/21/2014' ";
+		
 			if (!mysqli_query($con, $sql)) {
 				die('Error: ' . mysqli_error());
 			} else {
-				$result = mysqli_query($con, $sql);
-				if ($result){
-					echo "yep";
-					$row=mysqli_fetch_array($result);
-					
-					echo $row[Name]; 
-					
-					}
-					else {
-					echo "nope";
-					}
-
+				$result_today = mysqli_query($con, $sql);
+				
 			}
-			//echo "test";
-			while($row = mysqli_fetch_array($result)) {
-	   		// Write the value of the column (which is now in the array $row)
+			$hour = 0; 
+			
+			while($hour<25){
+				
+				$row = mysqli_fetch_array($result_today);
+				while($row and $hour<25){ 
+					$current = $row; 
+					
+					
+	   				if (substr($current[StartTime], 6, 8) == 'PM') {
+	   					$sTime = int(substr($row[StartTime], 0, 1))*2;
+	   					
+	   				}
+	   				else {
+	   					$sTime = substr($current[StartTime], 0, 2);
 
-	 			echo $row[Name]; 
-
+	   				}
+	   				if ($sTime>=$hour and $sTime<($hour+1)){
+	   					echo $hour."<br>"; 			
+	 					echo $current[Name]."<br>"; 			
+	 				}
+	 				if ($current = mysqli_fetch_array($result_today)){
+	 					//echo $current[Name]; 
+	 					}
+	 				
+				}	
+				//$row = mysqli_fetch_array($result_today)		
+	  			$hour+=1; 
+	
 	  		}
 			mysqli_close($con);
 		?>
