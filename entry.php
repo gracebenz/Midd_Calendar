@@ -33,20 +33,6 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		});
 		</script>
 		<!---->
-
-		<!--time widget
-        <link rel="stylesheet" type="text/css" href="jquery.ptTimeSelect.css" />
-        <script type="text/javascript" src="jquery.ptTimeSelect.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></script>
-        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-		
-    	<script type="text/javascript">
-        $(document).ready(function(){
-            $('input[name="startEventTime"]').ptTimeSelect();
-            $('input[name="endEventTime"]').ptTimeSelect();
-        });
-    	</script>
-		-->	
 	</head>
 
 	<body>
@@ -62,7 +48,6 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 	
 		<div id="forms">
 		<form action="storeEvent.php" method="post">
-		EID: <input type="text" name="EID" required/><br><br>
 		Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
 		Start Time (hh:mm AM/PM) <input type="text" name="startEventTime" required/><br><br>
@@ -85,6 +70,7 @@ $con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("C
 		<input type="checkbox" name="tag" value="womens"/>Women's<br>
 		<input type="checkbox" name="tag" value="varsity"/>Varsity<br>
 		<input type="checkbox" name="tag" value="jv"/>JV<br>
+		<input type="checkbox" name="tag" value="club"/>Club<br>
 		<input type="checkbox" name="tag" value="baseball"/>Baseball<br>
 		<input type="checkbox" name="tag" value="basketball"/>Basketball<br>
 		<input type="checkbox" name="tag" value="crossCountry"/>Cross Country<br>

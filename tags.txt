@@ -22,6 +22,7 @@ Sports
 -intramural
 -skiing, nordic
 -skiing, alpine
+-club
 
 Activities
 -yoga
