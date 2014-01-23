@@ -19,6 +19,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 $eid = rand(10000000, 99999999);
 
 $sql = "INSERT INTO Events (EID, Name, Date, StartTime, EndTime, Location, Organization, Description) 
+
 VALUES ('$eid', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]',
 '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
 
