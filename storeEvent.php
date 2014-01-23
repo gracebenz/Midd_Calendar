@@ -16,30 +16,27 @@ define('DB_DATABASE', 'khihuac_Calendar');
 
 $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
-<script type="text/javascript">
-	var eid = Math.floor((Math.random() * 98999999) + 10000000);
-	window.location.href = "storeEvent.php?eid=" + eid;
-</script>
+$eid = rand(10000000, 99999999); 
 
-//$eid = $_GET[eid];
-//echo eid;
-
+/*
+$eid = $_GET[eid];
+echo $eid;
+*/
 $sql = "INSERT INTO Events (EID, Name, Date, StartTime, EndTime, Location, Organization, Description) 
-VALUES ('$_GET[eid]', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]', '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
+VALUES ('$eid', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]', '$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]')";
 
 $sql_2 = "INSERT INTO Tags (Tag_Name, EID)
 VALUES ('$_POST[tag]', $_POST[EID]')"; 
 
-echo $sql;
-
-echo $sql_2; 
-
+echo "Thank you!<br><br>Name: $_POST[eventName]<br>Event ID: $eid<br>Location: $_POST[eventLocation]
+<br>Organization: $_POST[eventOrganization]<br>Date: $_POST[eventDate]<br>Start time: $_POST[startEventTime]
+<br>End time: $_POST[endEventTime]";
 
 if (!mysqli_query($con, $sql)) {
 	die('Error: ' . mysqli_error($con));
 }
 
-echo "New record added";
+
 
 mysql_close ($con);
 ?>
