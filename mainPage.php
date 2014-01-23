@@ -9,13 +9,16 @@ January 2014
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="mainStylesheet.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Events Calendar</title>
 	</head>
 	
 	<body>
-		<h2>Events Calendar</h2>
+		<div id="header">
+			<h2>Events Calendar</h2>
+		</div>
 		
+		<div id="forms">
 		<script type="text/javascript">
 			var d = new Date()
 			var weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
@@ -25,8 +28,22 @@ January 2014
 			document.write(d.getDate() + ", ")
 			document.write(d.getFullYear() + "<br>")
 		</script>
+		</div>
 		
+		<div class="left">
+			<!-- HTML for SEARCH BAR -->
+			<div id="tfheader">
+				<form id="tfnewsearch" method="get" action="http://www.google.com">
+		        	<input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+				</form>
+				<div class="tfclear"></div>
+			</div>
+		</div>
 		
+		<div class="right"></div>
+		<div id="footer"></div>
+		
+		<div>
 		<?php
 			define('DB_SERVER', 'panther.cs.middlebury.edu');
 			define('DB_USERNAME', 'khihuac');
@@ -75,28 +92,7 @@ January 2014
 	  		}
 			mysqli_close($con);
 		?>
+		</div>
 		
-		
-
-		
-		
-		<!--
-		<script language="javascript">
-			function validate() {
-				fm = document.thisForm
-				//validate that the user entered information correctly
-				fm.submit()
-			}
-		</script>
-		
-		<form name="displayFormat" method="POST" action="query.php">
-		<select size="1" name="displayDropdown">
-			<option value="eventName">Event Name</option>
-			<option value="eventDate">Event Date</option>
-		</select>
-		<input type="button" value="Submit" name="btm_submit" onclick="validate()">
-		</form>
-		-->
-	
 	</body>
 </html>
