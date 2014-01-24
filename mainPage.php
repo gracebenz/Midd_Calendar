@@ -18,20 +18,8 @@ January 2014
 			<h2>Events Calendar</h2>
 		</div>
 		
-		<div id="forms">
-		<script type="text/javascript">
-			var d = new Date()
-			var weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
-			var monthname = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
-			document.write(weekday[d.getDay()] + ", ")
-			document.write(monthname[d.getMonth()] + " ")
-			document.write(d.getDate() + ", ")
-			document.write(d.getFullYear() + "<br>")
-		</script>
-		</div>
-		
+		<!--
 		<div class="left">
-			<!-- HTML for SEARCH BAR -->
 			<div id="tfheader">
 				<form id="tfnewsearch" method="get" action="http://www.google.com">
 		        	<input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
@@ -39,6 +27,7 @@ January 2014
 				<div class="tfclear"></div>
 			</div>
 		</div>
+		-->
 		
 		<div class="right"></div>
 		<div id="footer"></div>
@@ -50,46 +39,63 @@ January 2014
 			define('DB_PASSWORD', '12345abcde');
 			define('DB_DATABASE', 'khihuac_Calendar');
 
-
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
-			$sql = "SELECT * FROM Events WHERE Date='01/21/2014' ";
-		
-			if (!mysqli_query($con, $sql)) {
-				die('Error: ' . mysqli_error());
-			} else {
-				$result_today = mysqli_query($con, $sql);
-				
-			}
-			$hour = 0; 
 			
-			while($hour<25){
+			//display the date without using a bullshit script
+			$weekday = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+			$monthName = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+			$month = date(m);
+			if ($month < 10)
+				$month = substr($month, 1, 2);
+			echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";
+			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
+			
+			$hour = 0;
+			while ($hour < 25) {
+			
+				//declare query and check connection
+				//this has to be in the while loop because we need to execute the query 24 times (at least that's our shitty work-around)
+				//in other words, for every hour, we check every event –– $row wasn't storing anything before, it was just a dummy variable
+				//holding one iteration of the query at a time
+				$sql = "SELECT Name, StartTime, EndTime FROM Events WHERE Date='".$date."'";
+				if (!mysqli_query($con, $sql)) {
+					die('Error: ' . mysqli_error());
+				} else {
+					$result_today = mysqli_query($con, $sql);
+				}
 				
-				$row = mysqli_fetch_array($result_today);
-				while($row and $hour<25){ 
-					$current = $row; 
-					
-					
-	   				if (substr($current[StartTime], 6, 8) == 'PM') {
-	   					$sTime = int(substr($row[StartTime], 0, 1))*2;
-	   					
+				//format the hour
+				$printHour = $hour." AM";
+				if ($hour == 0)
+					$printHour = (12)." AM";
+				if ($hour > 12) 
+					$printHour = ($hour - 12)." PM";
+				
+				//check if events fall within hour
+				$displayHour = true;
+				while($row = mysqli_fetch_array($result_today)) {
+				
+					//simple check (same as before)
+					if (substr($row[StartTime], 6, 8) == 'PM') {
+	   					$sTime = substr($row[StartTime], 0, 2) + 12;
+	   				} else {
+	   					$sTime = substr($row[StartTime], 0, 2);
 	   				}
-	   				else {
-	   					$sTime = substr($current[StartTime], 0, 2);
-
-	   				}
-	   				if ($sTime>=$hour and $sTime<($hour+1)){
-	   					echo $hour."<br>"; 			
-	 					echo $current[Name]."<br>"; 			
+	   				
+	   				if (($sTime >= $hour) and ($sTime < ($hour+1))){
+	   					//only print the hour the first time, and only if there are events in that hour
+	   					if ($displayHour == true) {
+	   						echo "<br>".$printHour."<br>";
+	   						$displayHour = false;
+	   					}
+	 					echo $row[StartTime]." - ";
+	 					echo $row[EndTime].": ";	
+	 					echo $row[Name]."<br>"; 		
 	 				}
-	 				if ($current = mysqli_fetch_array($result_today)){
-	 					//echo $current[Name]; 
-	 					}
-	 				
-				}	
-				//$row = mysqli_fetch_array($result_today)		
-	  			$hour+=1; 
-	
-	  		}
+				}
+				$hour++;
+			}
+			
 			mysqli_close($con);
 		?>
 		</div>
