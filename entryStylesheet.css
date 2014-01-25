@@ -22,7 +22,7 @@ div {
 }
 
 .left {
-	height: 1050px;
+	height: 650px;
 	width: 150px;
 	background-color: #A7DBD8;
 	float: left;
@@ -31,7 +31,7 @@ div {
 
 .right {
 	display: block;
-	height: 1100px;
+	height: 680px;
 	width: 250px;
 	background-image: url(http://mthupp.files.wordpress.com/2012/09/midd-aerial-view.jpg);
 	/*background-color: #69D2E7;*/
@@ -68,6 +68,6 @@ h2 {
 	margin-left: 0px;
 }
 
-#tfheader {
+#searchheader {
 	display: inline;
 }

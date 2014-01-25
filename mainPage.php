@@ -10,7 +10,7 @@ January 2014
 <html>
 	<head>
 		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
-		<title>Events Calendar</title>
+		<title>Events Calendar | Middlebury College</title>
 	</head>
 	
 	<body>
@@ -18,16 +18,15 @@ January 2014
 			<h2>Events Calendar</h2>
 		</div>
 		
-		<!--
 		<div class="left">
-			<div id="tfheader">
-				<form id="tfnewsearch" method="get" action="http://www.google.com">
-		        	<input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+			<div id="searchHeader">
+				<form id="search" method="post" action="search.php">
+		        	<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
+		        	<input type="submit" value="search" class="button">
 				</form>
-				<div class="tfclear"></div>
+				<div class="clear"></div>
 			</div>
 		</div>
-		-->
 		
 		<div class="right"></div>
 		<div id="footer"></div>
@@ -95,9 +94,20 @@ January 2014
 				}
 				$hour++;
 			}
-			
 			mysqli_close($con);
 		?>
+		
+		<br>
+		<form action="entry.php" method="post">
+			<input type="submit" value="Create an event"/>
+		</form>
+		
+		<!--
+		<FORM>
+			<INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+		</FORM>
+		-->
+		
 		</div>
 		
 	</body>
