@@ -11,7 +11,22 @@ January 2014
 	<head>
 		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Events Calendar | Middlebury College</title>
-	</head>
+		<script>
+
+</script>
+</head>
+
+	<!--calendar widget--> 
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script>
+		$(function() {
+		$("#datepicker").datepicker();
+	});
+	</script>
 	
 	<body>
 		<div id="header">
@@ -46,24 +61,30 @@ January 2014
 			$month = date(m);
 			if ($month < 10)
 				$month = substr($month, 1, 2);
-			echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";
+			//echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";
+			
 			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
-		?>
-		
-		<form id="search" method="post" action="mainPage.php">
-		    <input type="submit" value="Today's events" class="button">
-		</form>
-		
-		<form id="search" method="post" action="weekView.php">
-		    <input type="submit" value="This week's events" class="button">
-		</form>
-		
-		<?php
+
+			?>
+			
+			<form action="mainPage.php" method="post">
+				Search by Day: <input type="text" id="datepicker" name="searchDate" maxlength="10" required/>
+				<input type="submit" value="search" class="button">
+			</form>
+			
+			
+			<?php 
+			if ($_POST[searchDate] != NULL) 
+				$date = $_POST[searchDate]; //get user selected date from calendar 
+			
+			echo $date."<br>"; 
+
 			$hour = 0;
 			while ($hour < 25) {
 			
 				//declare query and check connection
 				$sql = "SELECT Name, StartTime, EndTime FROM Events WHERE Date='".$date."'";
+				
 				if (!mysqli_query($con, $sql)) {
 					die('Error: ' . mysqli_error());
 				} else {
@@ -103,7 +124,7 @@ January 2014
 			}
 			mysqli_close($con);
 		?>
-		
+
 		<br>
 		<form action="entry.php" method="post">
 			<input type="submit" value="Create an event"/>
