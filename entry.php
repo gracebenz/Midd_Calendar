@@ -7,8 +7,6 @@ Alexa Gospodinoff
 January 2014
 -->
 
-
-
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
@@ -64,89 +62,6 @@ January 2014
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
-
-		
-		<!--
-		<h3>Tags</h3>
-		
-		
-		<div id="athletics">
-		<h4>Athletics</h4>
-		<input type="checkbox" name="tag[]" value="mens"/>Men's<br>
-		<input type="checkbox" name="tag[]" value="womens"/>Women's<br>
-		<input type="checkbox" name="tag[]" value="varsity"/>Varsity<br>
-		<input type="checkbox" name="tag[]" value="jv"/>JV<br>
-		<input type="checkbox" name="tag[]" value="club"/>Club<br>
-		<input type="checkbox" name="tag[]" value="baseball"/>Baseball<br>
-		<input type="checkbox" name="tag[]" value="basketball"/>Basketball<br>
-		<input type="checkbox" name="tag[]" value="crossCountry"/>Cross Country<br>
-		<input type="checkbox" name="tag[]" value="football"/>Football<br>
-		<input type="checkbox" name="tag[]" value="frisbee"/>Frisbee<br>
-		<input type="checkbox" name="tag[]" value="golf"/>Golf<br>
-		<input type="checkbox" name="tag[]" value="hockey"/>Hockey<br>
-		<input type="checkbox" name="tag[]" value="intramural"/>Intramural<br>
-		<input type="checkbox" name="tag[]" value="paddleball"/>Paddleball<br>
-		<input type="checkbox" name="tag[]" value="quidditch"/>Quidditch<br>
-		<input type="checkbox" name="tag[]" value="alpine"/>Skiing, alpine<br>
-		<input type="checkbox" name="tag[]" value="nordic"/>Skiing, nordic<br>
-		<input type="checkbox" name="tag[]" value="soccer"/>Soccer<br>
-		<input type="checkbox" name="tag[]" value="softball"/>Softball<br>
-		<input type="checkbox" name="tag[]" value="tennis"/>Tennis<br>
-		<input type="checkbox" name="tag[]" value="track"/>Track<br>
-		<input type="checkbox" name="tag[]" value="waterPolo"/>Water Polo<br>
-		</div>
-		
-		<div id="activities">
-		<h4>Activities</h4>
-		<input type="checkbox" name="tag[]" value="climbing"/>Climbing<br>
-		<input type="checkbox" name="tag[]" value="hiking"/>Hiking<br>
-		<input type="checkbox" name="tag[]" value="outdoors"/>Outdoors<br>
-		<input type="checkbox" name="tag[]" value="screening"/>Screening<br>
-		<input type="checkbox" name="tag[]" value="spinning"/>Spinning<br>
-		<input type="checkbox" name="tag[]" value="yoga"/>Yoga<br>
-		<input type="checkbox" name="tag[]" value="zumba"/>Zumba<br>
-		</div>
-		
-		<div id="performance">
-		<h4>Arts / Performance</h4>
-		<input type="checkbox" name="tag[]" value="acapella"/>A capella<br>
-		<input type="checkbox" name="tag[]" value="band"/>Band<br>
-		<input type="checkbox" name="tag[]" value="ceramics"/>Ceramics<br>
-		<input type="checkbox" name="tag[]" value="choir"/>Choir<br>
-		<input type="checkbox" name="tag[]" value="concert"/>Concert<br>
-		<input type="checkbox" name="tag[]" value="dance"/>Dance<br>
-		<input type="checkbox" name="tag[]" value="drawing"/>Drawing<br>
-		<input type="checkbox" name="tag[]" value="film"/>Film<br>
-		<input type="checkbox" name="tag[]" value="gallery"/>Gallery<br>
-		<input type="checkbox" name="tag[]" value="live"/>Live<br>
-		<input type="checkbox" name="tag[]" value="music"/>Music<br>
-		<input type="checkbox" name="tag[]" value="musical"/>Musical<br>
-		<input type="checkbox" name="tag[]" value="painting"/>Painting<br>
-		<input type="checkbox" name="tag[]" value="piano"/>Piano<br>
-		<input type="checkbox" name="tag[]" value="poetry"/>Poetry / spoken word<br>
-		<input type="checkbox" name="tag[]" value="theater"/>Theater<br>
-		<input type="checkbox" name="tag[]" value="track"/>Track<br>
-		</div>
-		
-		<div id="other">
-		<h4>Other</h4>
-		<input type="checkbox" name="tag[]" value="animals"/>Animals<br>
-		<input type="checkbox" name="tag[]" value="career"/>Career<br>
-		<input type="checkbox" name="tag[]" value="comedy"/>Comedy / improv<br>
-		<input type="checkbox" name="tag[]" value="cultural"/>Cultural<br>
-		<input type="checkbox" name="tag[]" value="food"/>Food<br>
-		<input type="checkbox" name="tag[]" value="gluten"/>Gluten-free<br>
-		<input type="checkbox" name="tag[]" value="internship"/>Internship<br>
-		<input type="checkbox" name="tag[]" value="lecture"/>Lecture<br>
-		<input type="checkbox" name="tag[]" value="lgbtq"/>LGBTQ<br>
-		<input type="checkbox" name="tag[]" value="nightlife"/>Nightlife<br>
-		<input type="checkbox" name="tag[]" value="plusone"/>Plus-one<br>
-		<input type="checkbox" name="tag[]" value="recruiting"/>Recruiting<br>
-		<input type="checkbox" name="tag[]" value="religion"/>Religion<br>
-		<input type="checkbox" name="tag[]" value="science"/>Science<br>
-		<input type="checkbox" name="tag[]" value="singles"/>Singles<br>
-		-->
-	</div>
 		
 		<br>
 		<input type="submit" value="Create"/>
