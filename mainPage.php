@@ -130,6 +130,10 @@ January 2014
 			<input type="submit" value="Create an event"/>
 		</form>
 		
+		<form action="creator.php" method="post">
+			<input type="submit" value="Create an account"/>
+		</form>
+		
 		</div>
 		
 	</body>
