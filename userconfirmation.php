@@ -11,7 +11,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 ?>
 <html>
 <head>
-<title> Yosaf! </title>
+<title>User Confirmation</title>
 </head>
 
 <body>

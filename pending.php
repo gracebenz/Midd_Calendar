@@ -13,6 +13,10 @@ January 2014
 	</head>
 
 	<body>
+		<div id="header">
+			<h2>Pending Events</h2>
+		</div>
+	
 		<?php
 		//set up connection to the database
 		define('DB_SERVER', 'panther.cs.middlebury.edu');
@@ -24,13 +28,14 @@ January 2014
 		$sql = "SELECT * FROM Events WHERE Approved = 0";
 		
 		if (!mysqli_query($con, $sql)) {
-					die('Error: ' . mysqli_error());
-				} else {
-					$result_today = mysqli_query($con, $sql);
-				}
+				die('Error: ' . mysqli_error());
+			} else {
+				$result_today = mysqli_query($con, $sql);
+		}
 		
 		while($row = mysqli_fetch_array($result_today)) {?>
-			<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
+			<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a>
+		<?php
 		}
 		?>
 	</body>

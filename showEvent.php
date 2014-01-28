@@ -30,22 +30,23 @@ January 2014
 		$sql = "SELECT * FROM Events WHERE EID = '".$EID."'"; 
 		
 		if (!mysqli_query($con, $sql)) {
-					die('Error: ' . mysqli_error());
-				} else {
-					$result_today = mysqli_query($con, $sql);
+				die('Error: ' . mysqli_error());
+			} else {
+				$result_today = mysqli_query($con, $sql);
 		}
 		$row = mysqli_fetch_array($result_today);
 		
-	
-
 		echo "Good Choice!<br><br>Name: $row[Name]<br>Location: $row[Location]
 		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
 		<br>End time: $row[EndTime]<br><br>";
 		
-		if (!mysqli_query($con, $sql)) {
-			die('Error: ' . mysqli_error($con));
+		if ($row[Approved] == 0 /*AND logged in as administrator*/) {?>
+			<a href="approved.php?EID=<?php echo $row[EID];?>">Approve this event<br><br></a>
+		<?php
 		}
-
+		?>
+		
+		<?php
 		mysql_close ($con);
 		?>
 
