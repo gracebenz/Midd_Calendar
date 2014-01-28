@@ -7,8 +7,6 @@ Alexa Gospodinoff
 January 2014
 -->
 
-
-
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
@@ -67,7 +65,7 @@ January 2014
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
-	
+		
 		<br>
 		<input type="submit" value="Create"/>
 		</form>

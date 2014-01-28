@@ -64,6 +64,7 @@ January 2014
 			//echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";
 			
 			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
+
 			?>
 			
 			<form action="mainPage.php" method="post">
@@ -133,6 +134,10 @@ January 2014
 		<br>
 		<form action="entry.php" method="post">
 			<input type="submit" value="Create an event"/>
+		</form>
+		
+		<form action="creator.php" method="post">
+			<input type="submit" value="Create an account"/>
 		</form>
 		
 		</div>
