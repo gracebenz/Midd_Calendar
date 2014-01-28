@@ -106,7 +106,7 @@ if(isset($_POST['register_submit']))
 		$to = $username."@middlebury.edu";
 		$subject = "This is subject";
 		$message = "This is simple text message.";
-		$header = "From:khz1993@yahoo.com \r\n";
+		$header = "From:noreply@noreply.org \r\n";
 
 		$retval = mail($to, $subject, $message, $header);
 
