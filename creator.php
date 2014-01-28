@@ -98,6 +98,7 @@ if(isset($_POST['register_submit']))
 	else
 		{
 		$username = $con->real_escape_string($_POST['Username']);
+		$cnfrmpin = encrypt_decrypt('encrypt', $username);
 		$password = $con->real_escape_string($_POST['Password']);
 		$encrpass = encrypt_decrypt('encrypt', $password);
 		
@@ -111,8 +112,8 @@ if(isset($_POST['register_submit']))
 		
 		$to = $username."@middlebury.edu";//, "MiddleburyEvents@gmail.com";
 		$subject = "Midd Events Signup Confirmation";
-		$message = "http://www.cs.middlebury.edu/~gbenz/userconfirmation.php?pin=";
-		$header = "From:khz1993@yahoo.com \r\n";
+		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!";
+		$header = "From:MiddleburyEvents@gmail.com \r\n";
 		$retval = mail($to, $subject, $message, $header);
 
 		if($retval == true)  
