@@ -26,6 +26,9 @@ January 2014
 		});
 		</script>
 		<!---->
+		
+	
+		
 	</head>
 
 	<body>
@@ -52,8 +55,8 @@ January 2014
 		<form action="storeEvent.php" method="post">
 		Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
-		Start Time (hh:mm AM/PM) <input type="text" name="startEventTime" required/><br><br>
-		End Time (hh:mm AM/PM): <input type="text" name="endEventTime" required/><br><br>
+		Start Time: <input type="text" name="startEventTime" placeholder = "hh:mm AM/PM" required/><br><br>
+		End Time: <input type="text" name="endEventTime" placeholder = "hh:mm AM/PM" required/><br><br>
 		Location: <input type="text" name="eventLocation" required/><br><br>
 		Do you have this location reserved?:<br>
 			<input type="radio" name="locationAppr" value="approved"/>Yes
@@ -72,6 +75,10 @@ January 2014
 		<form action="mainPage.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+		
+	
+		
+		
 	</body>
 
 </html>

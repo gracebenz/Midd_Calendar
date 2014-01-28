@@ -82,7 +82,7 @@ January 2014
 			while ($hour < 25) {
 			
 				//declare query and check connection		
-				$sql = "SELECT Name, StartTime, EndTime FROM Events WHERE Date='".$date."'";
+				$sql = "SELECT Name, StartTime, EndTime, EID FROM Events WHERE Date='".$date."'";
 				
 				if (!mysqli_query($con, $sql)) {
 					die('Error: ' . mysqli_error());
@@ -116,8 +116,14 @@ January 2014
 	   					}
 	 					echo $row[StartTime]." - ";
 	 					echo $row[EndTime].": ";	
-	 					echo $row[Name]."<br>"; 		
+	 					
+	 					?>
+	 					<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a>
+	 					<?php
+	 					
+	 					
 	 				}
+	 					
 				}
 				$hour++;
 			}
