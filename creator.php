@@ -56,7 +56,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>User Registration</title>
 	</head>
 
@@ -100,7 +100,6 @@ if(isset($_POST['register_submit']))
 		$username = $con->real_escape_string($_POST['Username']);
 		$password = $con->real_escape_string($_POST['Password']);
 		$encrpass = encrypt_decrypt('encrypt', $password);
-		//$verifyid = rand(10000000, 99999999);
 		
 		$sql = "INSERT INTO Creators (Username, Password) 
 		VALUES ('$username', '$encrpass')";
@@ -110,8 +109,8 @@ if(isset($_POST['register_submit']))
 			}
 		
 		$to = $username."@middlebury.edu";
-		$subject = "Middlebury Events Calendar Account Confirmation";
-		$message = "This email is to confirm ";
+		$subject = "This is subject";
+		$message = "This is simple text message.";
 		$header = "From:noreply@noreply.org \r\n";
 
 		$retval = mail($to, $subject, $message, $header);
