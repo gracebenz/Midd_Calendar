@@ -6,16 +6,13 @@ Alexa Gospodinoff
 
 January 2014
 -->
-
-
 <html>
 	<head>
 		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
-		<title>Event Description</title>
+		<title>Pending Events</title>
 	</head>
-	
-	<body>
 
+	<body>
 		<?php
 		//set up connection to the database
 		define('DB_SERVER', 'panther.cs.middlebury.edu');
@@ -24,33 +21,17 @@ January 2014
 		define('DB_DATABASE', 'khihuac_Calendar');
 
 		$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
-		
-
-		$EID = $_GET["EID"];
-		$sql = "SELECT * FROM Events WHERE EID = '".$EID."'"; 
+		$sql = "SELECT * FROM Events WHERE Approved = 0";
 		
 		if (!mysqli_query($con, $sql)) {
 					die('Error: ' . mysqli_error());
 				} else {
 					$result_today = mysqli_query($con, $sql);
-		}
-		$row = mysqli_fetch_array($result_today);
+				}
 		
-	
-
-		echo "Good Choice!<br><br>Name: $row[Name]<br>Location: $row[Location]
-		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
-		<br>End time: $row[EndTime]<br><br>";
-		
-		if (!mysqli_query($con, $sql)) {
-			die('Error: ' . mysqli_error($con));
+		while($row = mysqli_fetch_array($result_today)) {?>
+			<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
 		}
-
-		mysql_close ($con);
 		?>
-
-		<form action="mainPage.php" method="post">
-			<input type="submit" value="Return to Calendar"/>
-		</form>
 	</body>
 </html>

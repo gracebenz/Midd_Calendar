@@ -74,9 +74,6 @@ January 2014
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		
-	
-		
-		
 	</body>
 
 </html>

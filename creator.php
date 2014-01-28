@@ -79,6 +79,11 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 		<input type="submit" name="register_submit" value="Create"/>
 		</form>
+		
+		<form action="mainPage.php" method="post">
+			<input type="submit" value="Return to Calendar"/>
+		</form>
+		
 		</div>
 		
 		<div>
