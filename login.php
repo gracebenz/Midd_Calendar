@@ -1,17 +1,15 @@
+<!--
+Sam Hage
+Grace Benz
+Khi Chou
+Alexa Gospodinoff
+
+January 2014
+-->
 
 <?php 
 
-<<<<<<< HEAD
-// store session data
-//$_SESSION["username2"] = "SmellyCat2";
-=======
 session_start(); 
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
-
-
-?>
-
-<?php 
 
 /**
  * simple method to encrypt or decrypt a plain text string
@@ -141,13 +139,10 @@ if(isset($_POST['register-submit'])){
 
 					//echo "username: ".$username."<br>";
  
-<<<<<<< HEAD
-					$_SESSION["username"] = $username;
-					echo "session: ".$_SESSION["username"]."<br>";
-=======
+
 					$_SESSION['username'] = $username;
 					
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
+
 					echo "Login Successful.";
 					
 					
@@ -189,5 +184,4 @@ if(isset($_POST['register-submit'])){
 </form>
 </body>
 </html>
-
 
