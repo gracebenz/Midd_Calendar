@@ -1,15 +1,11 @@
-<?php 
-<<<<<<< HEAD
+<?php
 session_start();
-echo $_SESSION["username"];
+echo $_SESSION["type"];
+if ($_SESSION["type"] == "Creator" {
+	echo "Create an account to create events";
+	break;
+}
 ?>
-
-=======
-
-session_start(); 
-echo $_SESSION['username'];
-?>
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 
 <!--
 Sam Hage
@@ -37,8 +33,6 @@ January 2014
 		});
 		</script>
 		<!---->
-		
-	
 		
 	</head>
 

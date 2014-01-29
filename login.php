@@ -1,14 +1,6 @@
 
-<?php 
-
-<<<<<<< HEAD
-// store session data
-//$_SESSION["username2"] = "SmellyCat2";
-=======
-session_start(); 
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
-
-
+<?php
+	session_start();
 ?>
 
 <?php 
@@ -131,23 +123,18 @@ if(isset($_POST['register-submit'])){
 				//check if decrypted_txt == password
 				if($fetchedpass == $password){
 		
-					//if ($admin == 1){
+					if ($admin == 1) {
 						$_SESSION["type"] = "Admin";
 					
-					//}
-					//else{
-					//	$_SESSION["type"] = "Creator";
-					//}
+					}
+					else {
+						$_SESSION["type"] = "Creator";
+					}
 
 					//echo "username: ".$username."<br>";
  
-<<<<<<< HEAD
-					$_SESSION["username"] = $username;
-					echo "session: ".$_SESSION["username"]."<br>";
-=======
 					$_SESSION['username'] = $username;
 					
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 					echo "Login Successful.";
 					
 					
