@@ -13,8 +13,6 @@ January 2014
 session_start(); 
 
 
-<?php
-	session_start();
 /**
  * simple method to encrypt or decrypt a plain text string
  * initialization vector(IV) has to be the same when encrypting and decrypting

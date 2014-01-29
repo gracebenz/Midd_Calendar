@@ -1,7 +1,123 @@
 <?php
 	session_start();
 ?>
+<?php 
 
+
+
+
+/**
+ * simple method to encrypt or decrypt a plain text string
+ * initialization vector(IV) has to be the same when encrypting and decrypting
+ * PHP 5.4.9
+ *
+ * this is a beginners template for simple encryption decryption
+ * before using this in production environments, please read about encryption
+ *
+ * @param string $action: can be 'encrypt' or 'decrypt'
+ * @param string $string: string to encrypt or decrypt
+ *
+ * @return string
+ */
+
+function encrypt_decrypt($action, $string) {
+    $output = false;
+
+    $encrypt_method = "AES-256-CBC";
+    $secret_key = 'This is our secret key';
+    $secret_iv = 'This is our secret iv';
+
+    // hash
+    $key = hash('sha256', $secret_key);
+    
+    // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
+
+    if( $action == 'encrypt' ) {
+        $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+        $output = base64_encode($output);
+    }
+    else if( $action == 'decrypt' ){
+        $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
+
+    return $output;
+}
+
+
+//set up the connection to the database
+define('DB_SERVER','panther.cs.middlebury.edu');
+define('DB_USERNAME','khihuac');
+define('DB_PASSWORD','12345abcde');
+
+define('DB_DATABASE','khihuac_Calendar');
+
+$mysqli = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
+
+
+if(isset($_POST['register-submit']))
+	{
+  	$username = $mysqli->real_escape_string($_POST['username']);
+	$password = $mysqli->real_escape_string($_POST['password']);
+	 	
+	//encrypt the password
+    	$encrpass = encrypt_decrypt('encrypt', $password);
+
+		
+	//get the row corresponding to this user
+   	$sql = "SELECT Password FROM Creators WHERE Username ='".$username."'";
+	$sql1 = "SELECT Confirmed FROM Creators WHERE Username ='".$username."'";
+	$sql2 = "SELECT Administrator FROM Creators WHERE Username ='".$username."'";
+    	 
+	if (!mysqli_query($mysqli, $sql) || !mysqli_query($mysqli, $sql1))
+		{ 		
+		die('Error: ' . mysqli_error($mysqli));
+		}
+	else
+		{
+		//result will be rows corresponding to this user
+		$result = mysqli_query($mysqli,$sql);	
+		$result1 = mysqli_query($mysqli,$sql1);
+		$result2 = mysqli_query($mysqli,$sql2);
+	
+		//row will be single row for this result
+		$row = mysqli_fetch_array($result);
+		$row1 = mysqli_fetch_array($result1);
+		$row2 = mysqli_fetch_array($result2);
+	
+		$confirmed = $row1[0];
+		$admin = $row2[0];
+
+		if($confirmed == 1)
+			{
+			$fetchedpass = $row[0];
+						
+			if($fetchedpass == $encrpass)
+				{
+				if ($admin == 1){
+					$_SESSION["type"] = "Admin";
+				
+				}
+				else{
+					$_SESSION["type"] = "Creator";
+				}
+					
+
+					$_SESSION['username'] = $username;
+					echo "Login Successful.";
+				}
+			else
+				{
+				echo "Invalid Username and/or Password.";
+				}
+			}
+		else
+			{
+			echo "Invalid Username and/or Password.";
+			}
+		}
+	}
+?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -17,10 +133,23 @@
 <body>
 
 <div id="loginFields">
-	<form action="creator.php" method="post">
-		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu
-		<input type="password" name="Password" placeholder="password" required/>
+	<form method="post" action="index1.php">
+    
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="username" required /> <br> <br>
+   
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password" required/> <br> <br>
+   
+	<input type="submit" name="register-submit" value="Login">
+	<input type="submit" name="Logout" value="logout"/>
+	</form>
+<!--
+	<form action="index1.php" method="post">
+		<input type="text" name="username" placeholder="username" required/> @middlebury.edu
+		<input type="password" name="password" placeholder="password" required/>
 		<input type="submit" name="register_submit" value="Login"/>
+-->
 </div>
 
 <div id="searchHeader">
