@@ -40,17 +40,20 @@ January 2014
 					$searchResult = mysqli_query($con, $sql);
 				}
 				
+				$no_results = true;
+	
 				while($row = mysqli_fetch_array($searchResult)) {
-					echo $row[Name]."<br>";
-					echo $row[StartTime]."-".$row[EndTime]."<br>";
-					echo $row[Location]."<br><br>";
+					if ($row[Approved] == 1) {
+						?><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
+						echo $row[StartTime]."-".$row[EndTime]."<br>";
+						echo $row[Location]."<br><br>";
+						$no_results = false;
+					}
 				}
-			
+				if ($no_results)
+					echo "Sorry, your search did not return any results.<br><br>";
 		?>
 		
-		<form action="mainPage.php" method="post">
-			<input type="submit" value="Return to Calendar"/>
-		</form>
 		
 	</body>
 

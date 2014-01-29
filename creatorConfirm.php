@@ -94,11 +94,11 @@ if(isset($_POST['confirm_submit']))
 		if(!mysqli_query($con,$sql)){
 			die('Error: ' . mysqli_error($con));
 		}	
-		echo "You ACTUALLY own that email adress, good!";
+		echo "Thank you!";
 		}
 	else 
 		{
-		echo "this is clearly the wrong pin bro?";
+		echo "Please try again.";
 		}
 
 	}

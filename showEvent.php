@@ -24,7 +24,6 @@ January 2014
 		define('DB_DATABASE', 'khihuac_Calendar');
 
 		$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
-		
 
 		$EID = $_GET["EID"];
 		$sql = "SELECT * FROM Events WHERE EID = '".$EID."'"; 
@@ -36,9 +35,9 @@ January 2014
 		}
 		$row = mysqli_fetch_array($result_today);
 		
-		echo "Good Choice!<br><br>Name: $row[Name]<br>Location: $row[Location]
+		echo "Name: $row[Name]<br>Location: $row[Location]
 		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
-		<br>End time: $row[EndTime]<br><br>";
+		<br>End time: $row[EndTime]<br>Description: $row[Description]<br><br>";
 		
 		if ($row[Approved] == 0 /*AND logged in as administrator*/) {?>
 			<a href="approved.php?EID=<?php echo $row[EID];?>">Approve this event<br><br></a>
