@@ -128,7 +128,7 @@ January 2014
 			mysqli_close($con);
 		?>
 
-		<br>
+		<br><br>
 		<form action="entry.php" method="post">
 			<input type="submit" value="Create an event"/>
 		</form>

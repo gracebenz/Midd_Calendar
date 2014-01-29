@@ -2,7 +2,7 @@
 <?php session_start();
 
 // store session data
-$_SESSION["username2"] = "SmellyCat2";
+//$_SESSION["username2"] = "SmellyCat2";
 
 
 //$_SESSION["username2"] = "me";
@@ -158,8 +158,8 @@ if(isset($_POST['register-submit'])){
 
 					//echo "username: ".$username."<br>";
  
-					//$_SESSION["username2"] = $username;
-					echo "session: ".$_SESSION["username2"]."<br>";
+					$_SESSION["username"] = $username;
+					echo "session: ".$_SESSION["username"]."<br>";
 					echo "Login Successful.";
 					
 					
@@ -182,7 +182,7 @@ if(isset($_POST['register-submit'])){
 
 
 <html>
-<title>yoa</title>
+<title>Login</title>
 <body>
 <h1>Login</h1>
 <form method="post" action="login.php">
@@ -195,6 +195,9 @@ if(isset($_POST['register-submit'])){
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
+	<form action="mainPage.php" method="post">
+			<input type="submit" value="Return to Calendar"/>
+	</form>
 </form>
 </body>
 </html>

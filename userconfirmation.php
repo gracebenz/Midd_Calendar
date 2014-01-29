@@ -57,10 +57,3 @@ mysqli_close($con);
 
 
 </html>
-
-
-
-
-
-
-

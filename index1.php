@@ -6,25 +6,49 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Midd Calenddar</title>
 
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="styles.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
 <body>
+
+
+<div id="searchHeader">
+
+	<div id="searchBar">
+	<form id="search" method="post" action="search.php">
+		<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
+		<input type="submit" value="search" class="button">
+	</form>
+	<div class="clear"></div>
+	</div>
+
+	<div id="createButton">
+	<form action="entry.php" method="post">
+		<input type="submit" value="Create an event"/>
+	</form>
+	</div>
+
+	<div id="loginButton">
+	<form action="creator.php" method="post">
+		<input type="submit" value="Create an account"/>
+	</form>
+	</div>
+	
+</div>
+
+
+<div id="everything">
 <div class="container">
 	<h1>Middlebury Calendar</h1>
 </div>
 <div id="main" class = "container">
 <div id="main1" class="container">
 	<div class="main_image">
-		<img src="images/banner01.png" alt="- banner1" />
+		<img src="images/chateau.jpg" alt="- banner1" />
 		<div class="desc">
-			<a href="#" class="collapse">Close Me!</a>
 			<div class="block">
-				<h2>Sam's Wrath</h2>
-				<small>08/27/2013</small>
-				
-				<p>There is only one god and his name is Death. And there is only one thing we say to Death: “Not today.”<br /><a>Artwork By Camera</a> </p>
+				<h2>Events at Middlebury</h2>
 			</div>
 		</div>
 	</div>
@@ -78,15 +102,12 @@
 						<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
 						<div class="block">
 							
-							<h2><?php echo $row[Name];?></h2>
+							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
 								<small><?php echo $row[StartTime]." - ";echo $row[EndTime];?></small>
 					
-								<p><?php echo $row[Description];?><br /><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a>  </p>
+								<p><?php echo $row[Description];?><br/></p>
 						</div>
 						</li>
-			
-			
-
 			<?php 	
 					$count++;					
 					}
@@ -96,13 +117,12 @@
 			$hour++;
 			}
 			mysqli_close($con);
-		
-
 		?>
 
 		</ul>
 
 	</div>
+</div>
 </div>
 </div>
 

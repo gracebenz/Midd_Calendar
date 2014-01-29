@@ -1,3 +1,9 @@
+<?php 
+session_start();
+echo $_SESSION["username"];
+?>
+
+
 <!--
 Sam Hage
 Grace Benz
@@ -9,7 +15,7 @@ January 2014
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Create An Event</title>
 		
 		<!--calendar widget-->		
