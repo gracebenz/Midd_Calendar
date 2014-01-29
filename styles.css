@@ -36,10 +36,6 @@ a:hover {
 	text-decoration: none;
 }
 
-#searchBar {
-	display: inline-block;
-}
-
 #searchHeader > div {
 	display: inline-block;
 	float: right;
@@ -56,25 +52,34 @@ a:hover {
 	color: #A52A2A;
 	text-decoration: none;
 	font-size: 1.3em;
-	padding: 3px 3px 3px 3px;
+	padding: 4px 4px 4px 4px;
 }
 
 #searchHeader a:visited {
 	color: black;
 	text-decoration: none;
 	font-size: 1.3em;
-	padding: 3px 3px 3px 3px;
+	padding: 4px 4px 4px 4px;
 }
 
 #searchHeader a:hover {
 	color: #0A4FA8;
 	text-decoration: none;
 	font-size: 1.3em;
-	padding: 3px 3px 3px 3px;
+	padding: 4px 4px 4px 4px;
+}
+
+#loginFields {
+	display: inline-block;
+	float: left;
+	padding: 5px 5px 5px 5px;
 }
 
 #searchBar {
 	padding: 5px 5px 5px 5px;
+	display: inline-block;
+	width: 30%
+	margin 0 auto;
 }
 
 h1 {
@@ -125,6 +130,34 @@ h3 {
 
 a {
 	color: #fff;
+}
+
+#signupAll {
+	width: 500px;
+    height: 500px;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+#entryAll {
+	width: 1000px;
+    height: 100%;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+#descriptor {
+	font-size: 1.3em;
 }
 
 /*--Main Image Preview--*/

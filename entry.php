@@ -1,10 +1,5 @@
 <?php
 session_start();
-echo $_SESSION["type"];
-if ($_SESSION["type"] == "Creator" {
-	echo "Create an account to create events";
-	break;
-}
 ?>
 
 <!--
@@ -18,7 +13,7 @@ January 2014
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Create An Event</title>
 		
 		<!--calendar widget-->		
@@ -46,9 +41,10 @@ January 2014
 
 		$con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 		?>
+		<div id="entryAll">
 	
 		<div id="header">
-			<h2>Create an Event</h2>
+			<h1>Create an Event</h1>
 		</div>
 		
 		<div class="left"></div>
@@ -58,28 +54,30 @@ January 2014
 	
 		<div id="forms">
 		<form action="storeEvent.php" method="post">
-		Event name: <input type="text" name="eventName" required/><br><br>
+		<br>Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
 		Start Time: <input type="text" name="startEventTime" placeholder = "hh:mm AM/PM" required/><br><br>
 		End Time: <input type="text" name="endEventTime" placeholder = "hh:mm AM/PM" required/><br><br>
 		Location: <input type="text" name="eventLocation" required/><br><br>
-		Do you have this location reserved?:<br>
+		Do you have this location reserved?:
 			<input type="radio" name="locationAppr" value="approved"/>Yes
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 
-		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br>
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br><br>
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
 		
 		<br>
-		<input type="submit" value="Create"/>
+		<input type="submit" value="Create"/><br><br>
 		</form>
 		
 		<form action="mainPage.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+		
+		</div>
 		
 	</body>
 

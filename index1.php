@@ -16,33 +16,30 @@
 
 <body>
 
-<div id="searchBar">
-	<form id="search" method="post" action="search.php">
-		<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
-		<input type="submit" value="search" class="button">
+
+<div id="loginFields">
+	<form action="creator.php" method="post">
+		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu
+		<input type="password" name="Password" placeholder="password" required/>
+		<input type="submit" name="register_submit" value="Login"/>
 	</form>
-	<div class="clear"></div>
-	</div>
+</div>
 
 <div id="searchHeader">
-
-	<div id="createEventButton">
-		<a href="entry.php">Create an event</a>
-	</div>
-
-	<div id="loginButton">
-		<a href="login.php">Login</a>
-	</div>
-	
-	<div id="signupButton">
-		<a href="signup.php">Sign up</a>
-	</div>
 	
 	<div id="logoutButton">
 		<a href="logout.php">Sign out</a>
 	</div>
 	
+	<div id="createEventButton">
+		<a href="entry.php">Create an event</a>
+	</div>
+	
+	<div id="signupButton">
+		<a href="signup.php">Sign up</a>
+	</div>
 </div>
+
 
 <?php
 $weekday = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
@@ -52,11 +49,19 @@ if ($month < 10)
 	$month = substr($month, 1, 2);
 ?>
 
-
 <div class="container">
-	<h1>Middlebury Calendar</h1>
+	<h1>Middlebury Events Calendar</h1>
 	<h3><?php echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";?></h3>
 </div>
+
+	<div id="searchBar">
+		<form id="search" method="post" action="search.php">
+			<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
+			<input type="submit" value="search" class="button">
+		</form>
+		<div class="clear"></div>
+	</div>	
+
 <div id="main" class = "container">
 <div id="main1" class="container">
 	<div class="main_image">
@@ -68,6 +73,7 @@ if ($month < 10)
 		</div>
 	</div>
 </div>
+
 <div id="main2" class="container">
 	<div class="image_thumb">
 		<ul>

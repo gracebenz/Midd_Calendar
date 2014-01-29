@@ -19,14 +19,15 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Email Signup</title>
 	</head>
 
 	<body>
-
+		<div id="signupAll">
+		
 		<div id="header">
-			<h2>Email Signup</h2>
+			<h1>Email Signup<br></h1>
 		</div>
 		
 		<div class="left"></div>
@@ -34,16 +35,19 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 		<div id="footer"></div>
 		
 		
-		<div id="forms">
 		<form action="signup.php" method="post">
-		Sign up to receive emails about upcoming events at Midd.<br /><br />
-		Username: <input type="text" name="Username" required/> @middlebury.edu<br /><br />
+		<span id="descriptor"><br>Sign up to receive emails about upcoming events at Midd.</span><br/><br/>
+		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu<br /><br />
 		
-		<input type="submit" name="signup_submit" value="Subscribe"/>
+		<input type="submit" name="signup_submit" value="Subscribe"/><br><br>
 		</form>
-		</div>
 		
-		<div>
+		<form action="index1.php" method="post">
+			<input type="submit" value="Return to Calendar"/>
+		</form>
+		
+		</div>
+		</div>
 
 <?php
 if(isset($_POST['signup_submit']))
