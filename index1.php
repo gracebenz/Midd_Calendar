@@ -243,10 +243,9 @@ if ($month < 10)
 			</script>
 			
 			
-			
 			<?php
 			$searchDate = $_POST[searchDate]; 
-			echo $earchDate;
+			
 			?>
 			
 			Events for: <?php echo $searchDate;?>
