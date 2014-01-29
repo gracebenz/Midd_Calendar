@@ -1,6 +1,23 @@
+<?php
+	session_start();
+	echo $_SESSION["type"];
+?>
+
 <!doctype html>
 <html lang="en-US">
 <head>
+
+	<!--calendar widget--> 
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script>
+		$(function() {
+		$("#datepicker").datepicker();
+	});
+	</script>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
@@ -22,23 +39,31 @@
 	</form>
 	<div class="clear"></div>
 	</div>
-
-	<div id="createButton">
-	<form action="entry.php" method="post">
-		<input type="submit" value="Create an event"/>
+	
+	<!--
+	<div id="dateChange">
+	<form action="mainPage.php" method="post">
+		Search by Day: <input type="text" id="datepicker" name="searchDate" maxlength="10" required/>
+		<input type="submit" value="search" class="button">
 	</form>
+	</div>
+	-->
+
+	<div id="createEventButton">
+		<a href="entry.php">Create an event</a>
 	</div>
 
 	<div id="loginButton">
-	<form action="creator.php" method="post">
-		<input type="submit" value="Create an account"/>
-	</form>
+		<a href="login.php">Login</a>
+	</div>
+	
+	<div id="signupButton">
+		<a href="signup.php">Sign up</a>
 	</div>
 	
 </div>
 
 
-<div id="everything">
 <div class="container">
 	<h1>Middlebury Calendar</h1>
 </div>
@@ -122,7 +147,6 @@
 		</ul>
 
 	</div>
-</div>
 </div>
 </div>
 
