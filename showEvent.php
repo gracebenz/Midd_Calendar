@@ -35,7 +35,7 @@ January 2014
 		}
 		$row = mysqli_fetch_array($result_today);
 		
-		?><span id="descriptor"><?php
+		?><span id="bigDescriptor"><?php
 		echo "Name: $row[Name]<br>Location: $row[Location]
 		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
 		<br>End time: $row[EndTime]<br>Description: $row[Description]<br><br>";

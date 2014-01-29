@@ -154,15 +154,7 @@ if(isset($_POST['register-submit']))
 		<input type="submit" name="register-submit" value="Login">
 		<input type="submit" name="Logout" value="logout"/>
 		
-
-	
 	</form>
-<!--
-	<form action="index1.php" method="post">
-		<input type="text" name="username" placeholder="username" required/> @middlebury.edu
-		<input type="password" name="password" placeholder="password" required/>
-		<input type="submit" name="register_submit" value="Login"/>
--->
 </div>
 
 <div id="searchHeader">
@@ -208,6 +200,8 @@ if ($month < 10)
 <div id="main" class = "container">
 <div id="main1" class="container">
 	<div class="main_image">
+		<?php
+		if (date(n) 
 		<img src="images/chateau.jpg" alt="- banner1" />
 		<div class="desc">
 			<div class="block">
@@ -283,7 +277,7 @@ if ($month < 10)
 	   					//if ($row[Approved] == 1) {
 						?>
 							<li>
-							<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
+							<a href="images/banner<?php echo $count;?>.png"><img src="images/calendar-icon.jpg" alt="Luigi Mansion" /></a>
 							<div class="block">
 							
 							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
