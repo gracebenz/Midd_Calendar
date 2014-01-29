@@ -8,12 +8,12 @@ January 2014
 -->
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Thank You!</title>
 	</head>
 	
 	<body>
-
+	<div id="otherPage">
 		<?php
 		//set up connection to the database
 		define('DB_SERVER', 'panther.cs.middlebury.edu');
@@ -28,6 +28,7 @@ January 2014
 		VALUES ('$eid', '$_POST[eventName]', '$_POST[eventDate]', '$_POST[startEventTime]', '$_POST[endEventTime]',
 		'$_POST[eventLocation]', '$_POST[eventOrganization]', '$_POST[eventDescription]', '$_POST[tags]')";
 
+		?><span id="descriptor"><?php
 		echo "Thank you!<br><br>Name: $_POST[eventName]<br>Event ID: $eid<br>Location: $_POST[eventLocation]
 		<br>Organization: $_POST[eventOrganization]<br>Date: $_POST[eventDate]<br>Start time: $_POST[startEventTime]
 		<br>End time: $_POST[endEventTime]<br><br>";
@@ -38,10 +39,10 @@ January 2014
 
 		mysql_close ($con);
 		?>
-
-
+		</span>
 		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+	</div>
 	</body>
 </html>

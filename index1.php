@@ -101,8 +101,6 @@ if(isset($_POST['register-submit']))
 				else{
 					$_SESSION["type"] = "Creator";
 				}
-					
-
 					$_SESSION['username'] = $username;
 					echo "Login Successful.";
 				}
@@ -136,10 +134,10 @@ if(isset($_POST['register-submit']))
 	<form method="post" action="index1.php">
     
         <label for="username"></label>
-        <!--<input type="text" name="username" id="username" placeholder="username" required /> <br> <br>-->
+        <input type="text" name="username" id="username" placeholder="username" required />
    
         <label for="password"></label>
-        <!--<input type="password" name="password" id="password" placeholder="password" required/> <br> <br>-->
+        <input type="password" name="password" id="password" placeholder="password" required/>
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>

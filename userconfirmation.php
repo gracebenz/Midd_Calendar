@@ -54,6 +54,4 @@ mysqli_close($con);
 
 
 </body>
-
-
 </html>

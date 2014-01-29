@@ -1,5 +1,5 @@
 <?php
 session_destroy();
 
-header("Location: http://www.cs.middlebury.edu/~khihuac/session.php");
+header("Location: http://www.cs.middlebury.edu/~shage/session.php");
 ?>

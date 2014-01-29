@@ -10,12 +10,12 @@ January 2014
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Event Description</title>
 	</head>
 	
 	<body>
-
+	<div id="otherPage">
 		<?php
 			//set up connection to the database
 			define('DB_SERVER', 'panther.cs.middlebury.edu');
@@ -32,15 +32,21 @@ January 2014
 						die('Error: ' . mysqli_error());
 					} else {
 						$approval_change = mysqli_query($con, $update);
-			}			
-			echo "Event approved!";
-
+			}
+			?>
+			<span id="descriptor">
+			<?php			
+			echo "Event approved!<br><br>";
+			?>
+			</span>
+			<?php
 			mysqli_close($con);
 		?>	
 		
 		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+		</div>
 		
 	</body>
 </html>

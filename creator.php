@@ -56,39 +56,32 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>User Registration</title>
 	</head>
 
 	<body>
-
+	<div id="otherPage">
 		<div id="header">
-			<h2>Creator Registration</h2>
+			<h1>Creator Registration</h1><br>
 		</div>
-		
-		<div class="left"></div>
-		<div class="right"></div>
-		<div id="footer"></div>
-		
 
-		<div id="forms">
+		<div id="descriptor">
 		<form action="creator.php" method="post">
 		Username: <input type="text" name="Username" required/> @middlebury.edu<br /><br />
 		Password: <input type="password" name="Password" required/><br /><br />
 		Confirm Password: <input type="password" name="Password2" required/><br /><br />
 		<input type="checkbox" name="Admin" value="yes" />I am an administrator of events scheduling for Middlebury.<br /><br />
 
-		<input type="submit" name="register_submit" value="Create"/>
+		<input type="submit" name="register_submit" value="Create"/><br><br>
 		</form>
-		
-		<form action="mainPage.php" method="post">
+
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
-		
 		</div>
-		
-		<div>
 
+		<div>
 <?php
 if(isset($_POST['register_submit']))
 	{
@@ -109,11 +102,8 @@ if(isset($_POST['register_submit']))
 			{
 			die('Error: ' . mysqli_error($con));
 			}
-			
-		
 
-		$to = $username."@middlebury.edu,MiddleburyEvents@gmail.com";
-
+		$to = $username."@middlebury.edu";
 		$subject = "Midd Events Signup Confirmation";
 		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!\r\n\r\n";
 		if ($_POST['Admin'] == "yes")
@@ -121,15 +111,13 @@ if(isset($_POST['register_submit']))
 			$message = $message."You have requested administrator status.";
 			}
 		$header = "From:MiddleburyEvents@gmail.com \r\n";
-
-		
+	
 		$tp = "MiddleburyEvents@gmail.com";
-		$messagf = .$username." has registered as a creator."
+		$messagf = $username." has registered as a creator.";
 		if ($_POST['Admin'] == "yes")
 			{
 			$messagf = $messagf." They have requested administrator status. To confirm their administrator request, click the following link: http://www.cs.middlebury.edu/~agospodinoff/adminConfirm.php?Username=".$username;
 			}
-
 
 		$retval = mail($to, $subject, $message, $header);
 		
@@ -147,11 +135,10 @@ if(isset($_POST['register_submit']))
 	}
 
 mysqli_close ($con);
-
-}
-?>		
-
+?>
+	</div>
 		</div>
+
 	</body>
 
 </html>

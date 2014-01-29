@@ -24,7 +24,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 	</head>
 
 	<body>
-		<div id="signupAll">
+		<div id="otherPage">
 		
 		<div id="header">
 			<h1>Email Signup<br></h1>

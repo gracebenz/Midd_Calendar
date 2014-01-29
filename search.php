@@ -9,17 +9,18 @@ January 2014
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Search Results</title>
 	</head>
 	
 	<body>
+	<div id="otherPage">
 		<div id="header">
-			<h2>Search Results</h2>
+			<h1>Search Results</h1><br>
 		</div>
 		
 		<form action="index1.php" method="post">
-			<input type="submit" value="Return to Calendar"/>
+			<input type="submit" value="Return to Calendar"/><br><br>
 		</form>
 		
 		<?php
@@ -44,9 +45,10 @@ January 2014
 	
 				while($row = mysqli_fetch_array($searchResult)) {
 					if ($row[Approved] == 1) {
-						?><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
+						?><span id="descriptor"><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
 						echo $row[StartTime]."-".$row[EndTime]."<br>";
-						echo $row[Location]."<br><br>";
+						echo $row[Location]."<br><br>";?>
+						</span><?php
 						$no_results = false;
 					}
 				}
@@ -54,7 +56,7 @@ January 2014
 					echo "Sorry, your search did not return any results.<br><br>";
 		?>
 		
-		
+	</div>	
 	</body>
 
 </html>

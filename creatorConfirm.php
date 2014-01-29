@@ -56,30 +56,30 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>User Registration</title>
 	</head>
 
 	<body>
-
+	<div id="otherPage">
 		<div id="header">
-			<h2>Creator Confirmation</h2>
+			<h1>Creator Confirmation</h1><br>
 		</div>
 
-		<div id="forms">
+		<div id="descriptor">
 		<form action="creatorConfirm.php" method="post">
 		Username: <input type="text" name="username"/><br /><br />
 		Confirmation PIN: <input type="text" name="pin"/><br /><br />
 
-		<input type="submit" name="confirm_submit" value="Confirm"/>
+		<input type="submit" name="confirm_submit" value="Confirm"/><br><br>
 		</form>
 		
 		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		</div>
+	</div>
 		
-		<div>
 
 <?php
 if(isset($_POST['confirm_submit']))
@@ -105,8 +105,6 @@ if(isset($_POST['confirm_submit']))
 
 mysqli_close ($con);
 ?>		
-
-		</div>
 	</body>
 
 </html>

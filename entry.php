@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 if($_SESSION['type'] == "Guest"){
-header("Location: http://www.cs.middlebury.edu/~khihuac/creator.php");
+header("Location: http://www.cs.middlebury.edu/~shage/creator.php");
 }
 echo $_SESSION['type'];
 
@@ -47,7 +47,7 @@ January 2014
 
 		$con = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 		?>
-		<div id="entryAll">
+		<div id="otherPage">
 	
 		<div id="header">
 			<h1>Create an Event</h1>
@@ -58,7 +58,7 @@ January 2014
 		<div id="footer"></div>
 		
 	
-		<div id="forms">
+		<div id="descriptor">
 		<form action="storeEvent.php" method="post">
 		<br>Event name: <input type="text" name="eventName" required/><br><br>
 		Date: <input type="text" id="datepicker" name="eventDate" maxlength="10" required/><br><br>
@@ -69,10 +69,7 @@ January 2014
 			<input type="radio" name="locationAppr" value="approved"/>Yes
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
-
-
-		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="500"></textarea><br>
-
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="500"></textarea><br><br>
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
@@ -82,7 +79,7 @@ January 2014
 		</form>
 		
 		<form action="index1.php" method="post">
-			<input type="submit" value="Return to Calendar"/>
+			<input type="submit" value="Return to Calendar"/><br><br><br><br>
 		</form>
 		
 		</div>

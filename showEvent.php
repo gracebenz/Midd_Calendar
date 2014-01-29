@@ -15,7 +15,7 @@ January 2014
 	</head>
 	
 	<body>
-
+	<div id="otherPage">
 		<?php
 		//set up connection to the database
 		define('DB_SERVER', 'panther.cs.middlebury.edu');
@@ -35,12 +35,13 @@ January 2014
 		}
 		$row = mysqli_fetch_array($result_today);
 		
+		?><span id="descriptor"><?php
 		echo "Name: $row[Name]<br>Location: $row[Location]
 		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
 		<br>End time: $row[EndTime]<br>Description: $row[Description]<br><br>";
 		
 		if ($row[Approved] == 0 /*AND logged in as administrator*/) {?>
-			<a href="approved.php?EID=<?php echo $row[EID];?>">Approve this event<br><br></a>
+			<a href="approved.php?EID=<?php echo $row[EID];?>">Approve this event<br><br></a></span>
 		<?php
 		}
 		?>
@@ -52,5 +53,6 @@ January 2014
 		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+	</div>
 	</body>
 </html>
