@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 <?php 
 
 session_start(); 
@@ -9,6 +9,11 @@ header("Location: http://www.cs.middlebury.edu/~khihuac/creator.php");
 echo $_SESSION['type'];
 echo $_SESSION['username'];
 
+=======
+
+<?php
+session_start();
+>>>>>>> 8cecb21bdc85bbd98e343b61c379ef5a1013a24e
 ?>
 
 

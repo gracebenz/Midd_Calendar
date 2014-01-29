@@ -3,6 +3,7 @@ Sam Hage
 Grace Benz
 Khi Chou
 Alexa Gospodinoff
+<<<<<<< HEAD
 
 January 2014
 -->
@@ -11,6 +12,9 @@ January 2014
 
 session_start(); 
 
+
+<?php
+	session_start();
 /**
  * simple method to encrypt or decrypt a plain text string
  * initialization vector(IV) has to be the same when encrypting and decrypting
@@ -92,8 +96,7 @@ if(isset($_POST['register-submit']))
 	
 		$confirmed = $row1[0];
 		$admin = $row2[0];
-		
-		
+
 		if($confirmed == 1)
 			{
 			$fetchedpass = $row[0];
@@ -108,6 +111,7 @@ if(isset($_POST['register-submit']))
 					$_SESSION["type"] = "Creator";
 				}
 					
+
 					$_SESSION['username'] = $username;
 					echo "Login Successful.";
 				}
@@ -139,11 +143,10 @@ if(isset($_POST['register-submit']))
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
-	<form action="mainPage.php" method="post">
+	<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 	</form>
 </form>
 </body>
 </html>
-
 

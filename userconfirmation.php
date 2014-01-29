@@ -40,10 +40,10 @@ if(isset($_POST['confirm_submit']))
 			die('Error: ' . mysqli_error($con));
 		}	
 
-		echo "You ACTUALLY own that email adress, good!";
+		echo "You're good to go!";
 	}
 	else {
-		echo "this is clearly the wrong pin bro?" ;
+		echo "That pin doesn't quite match." ;
 	}
 
 }

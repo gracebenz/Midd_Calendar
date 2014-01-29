@@ -38,7 +38,7 @@ January 2014
 			mysqli_close($con);
 		?>	
 		
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		

@@ -10,7 +10,7 @@ January 2014
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Event Description</title>
 	</head>
 	
@@ -49,7 +49,7 @@ January 2014
 		mysql_close ($con);
 		?>
 
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 	</body>

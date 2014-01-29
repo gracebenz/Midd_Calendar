@@ -18,7 +18,7 @@ January 2014
 			<h2>Search Results</h2>
 		</div>
 		
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		
