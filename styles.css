@@ -145,44 +145,8 @@ a {
 }
 
 #entryAll {
-	width: 500px;
-    height: 500px;
-	position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-}
-
-#pendingAll {
-	width: 500px;
-    height: 500px;
-	position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-}
-
-#showAll {
-	width: 500px;
-    height: 500px;
-	position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-}
-
-#searchAll {
-	width: 500px;
-    height: 500px;
+	width: 1000px;
+    height: 100%;
 	position: absolute;
     top:0;
     bottom: 0;
@@ -193,7 +157,7 @@ a {
 }
 
 #descriptor {
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 /*--Main Image Preview--*/

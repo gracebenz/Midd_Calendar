@@ -133,9 +133,7 @@ if(isset($_POST['register-submit']))
 <body>
 
 <div id="loginFields">
-	<form action="index1.php" method="post">
-		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu
-		<input type="password" name="Password" placeholder="password" required/>
+	<form method="post" action="index1.php">
     
         <label for="username"></label>
         <!--<input type="text" name="username" id="username" placeholder="username" required /> <br> <br>-->
@@ -146,6 +144,12 @@ if(isset($_POST['register-submit']))
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
 	</form>
+<!--
+	<form action="index1.php" method="post">
+		<input type="text" name="username" placeholder="username" required/> @middlebury.edu
+		<input type="password" name="password" placeholder="password" required/>
+		<input type="submit" name="register_submit" value="Login"/>
+-->
 </div>
 
 <div id="searchHeader">
