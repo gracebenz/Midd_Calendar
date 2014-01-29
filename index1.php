@@ -137,11 +137,11 @@ if(isset($_POST['register-submit']))
 		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu
 		<input type="password" name="Password" placeholder="password" required/>
     
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="username" required /> <br> <br>
+        <label for="username"></label>
+        <!--<input type="text" name="username" id="username" placeholder="username" required /> <br> <br>-->
    
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="password" required/> <br> <br>
+        <label for="password"></label>
+        <!--<input type="password" name="password" id="password" placeholder="password" required/> <br> <br>-->
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
@@ -235,21 +235,22 @@ if ($month < 10)
 	   						echo "<br>".$printHour."<br>";
 	   						$displayHour = false;
 	   					}
-			?>
-						<li>
-						<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
-						<div class="block">
+	   					
+	   					//if ($row[Approved] == 1) {
+						?>
+							<li>
+							<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
+							<div class="block">
 							
 							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
-								<small><?php echo $row[StartTime]." - ";echo $row[EndTime];?></small>
-					
-								<p><?php echo $row[Description];?><br/></p>
-						</div>
-						</li>
-			<?php 	
+							<small><?php echo $row[StartTime]." - ";echo $row[EndTime];?></small>
+							<p><?php echo $row[Description];?><br/></p>
+							</div>
+							</li><?php
+						//}
+							
 					$count++;					
 					}
-				
 				}
 
 			$hour++;
