@@ -8,12 +8,14 @@ January 2014
 -->
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="styles.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Pending Events</title>
 	</head>
 
 	<body>
-		
+		<div id="header">
+			<h2>Pending Events</h2>
+		</div>
 	
 		<?php
 		//set up connection to the database
@@ -30,17 +32,11 @@ January 2014
 			} else {
 				$result_today = mysqli_query($con, $sql);
 		}
-		?>
-		<div id="pendingAll">
-		<div id="header">
-			<h1>Pending Events</h1><br>
-		</div>
-		<?php
+		
 		while($row = mysqli_fetch_array($result_today)) {?>
-			<a id="descriptor" href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a>
+			<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a>
 		<?php
 		}
 		?>
-		</div>
 	</body>
 </html>

@@ -69,7 +69,10 @@ January 2014
 			<input type="radio" name="locationAppr" value="approved"/>Yes
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
+
+
 		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="500"></textarea><br>
+
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>

@@ -10,7 +10,7 @@ January 2014
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="styles.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Event Description</title>
 	</head>
 	
