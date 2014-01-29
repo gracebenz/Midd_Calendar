@@ -1,15 +1,9 @@
 <?php 
-<<<<<<< HEAD
+
 session_start();
 echo $_SESSION["username"];
 ?>
 
-=======
-
-session_start(); 
-echo $_SESSION['username'];
-?>
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 
 <!--
 Sam Hage
@@ -74,7 +68,7 @@ January 2014
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 
-		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br>
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="500"></textarea><br>
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
@@ -83,7 +77,7 @@ January 2014
 		<input type="submit" value="Create"/>
 		</form>
 		
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		

@@ -17,7 +17,7 @@
 
 	<div id="searchBar">
 	<form id="search" method="post" action="search.php">
-		<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
+		<input type="text" class="textinput" name="searchInput" size="21" maxlength="120" required>
 		<input type="submit" value="search" class="button">
 	</form>
 	<div class="clear"></div>
