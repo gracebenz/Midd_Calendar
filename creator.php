@@ -147,6 +147,8 @@ if(isset($_POST['register_submit']))
 	}
 
 mysqli_close ($con);
+
+}
 ?>		
 
 		</div>

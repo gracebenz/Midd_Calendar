@@ -1,13 +1,9 @@
-
 <?php 
-
 session_start(); 
 if($_SESSION['type'] == "Guest"){
 header("Location: http://www.cs.middlebury.edu/~khihuac/creator.php");
-
 }
 echo $_SESSION['type'];
-echo $_SESSION['username'];
 
 ?>
 

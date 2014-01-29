@@ -1,10 +1,10 @@
 <?php session_start();
 
 // store session data
+$_SESSION['type'] = "Guest";
+$_SESSION['username'] = "Guest";
 
-$_SESSION["username"] = "Guest";
-$_SESSION["type"] = "Guest";
-header("Location: http://www.cs.middlebury.edu/~khihuac/index1.php")
+header("Location: http://www.cs.middlebury.edu/~khihuac/index1.php");
 
 
 ?>
