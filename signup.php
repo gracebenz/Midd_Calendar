@@ -60,7 +60,7 @@ if(isset($_POST['signup_submit']))
 		
 		$to = $username."@middlebury.edu";
 		$subject = "Midd Events Subscription Confirmation";
-		$message = "Hello, ".$username." and welcome to the Midd Events Calendar!\r\n\r\nYou're receiving this email because you recently asked to receive emails about upcoming events at Middlebury College.\r\n\r\nIf you do not wish to receive these emails, click on the following link to unsubscribe: http://www.cs.middlebury.edu/~agospodinoff/unsubscribe.php?Username=".$username;
+		$message = "Hi, ".$username."! Welcome to the Midd Events Calendar!\r\n\r\nYou're receiving this email because you recently asked to receive emails about upcoming events at Middlebury College.\r\n\r\nIf you do not wish to receive these emails, click on the following link to unsubscribe: http://www.cs.middlebury.edu/~agospodinoff/unsubscribe.php?Username=".$username;
 		$header = "From:MiddleburyEvents@gmail.com \r\n";
 
 		$retval = mail($to, $subject, $message, $header);
