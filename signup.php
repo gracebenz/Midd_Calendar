@@ -35,22 +35,22 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 		
 		
 		<div id="forms">
-		<form action="creator.php" method="post">
+		<form action="signup.php" method="post">
+		Sign up to receive emails about upcoming events at Midd.<br /><br />
+		Username: <input type="text" name="Username" required/> @middlebury.edu<br /><br />
 		
-		Username: <input type="text" name="Username" required/> @middlebury.edu<br><br>		
-		
-		<input type="submit" name="register_submit" value="Subscribe"/>
+		<input type="submit" name="signup_submit" value="Subscribe"/>
 		</form>
 		</div>
 		
 		<div>
 
 <?php
-if(isset($_POST['register_submit']))
+if(isset($_POST['signup_submit']))
 	{
 		$username = $con->real_escape_string($_POST['Username']);
 		
-		$sql = "INSERT INTO Users (Username) 
+		$sql = "INSERT INTO Subscribers (Username) 
 		VALUES ('$username')";
 		if (!mysqli_query($con, $sql)) 
 			{
@@ -60,7 +60,7 @@ if(isset($_POST['register_submit']))
 		
 		$to = $username."@middlebury.edu";
 		$subject = "Midd Events Subscription Confirmation";
-		$message = "You are successfully subscribed!";
+		$message = "Hi, ".$username."! Welcome to the Midd Events Calendar!\r\n\r\nYou're receiving this email because you recently asked to receive emails about upcoming events at Middlebury College.\r\n\r\nIf you do not wish to receive these emails, click on the following link to unsubscribe: http://www.cs.middlebury.edu/~agospodinoff/unsubscribe.php?Username=".$username;
 		$header = "From:MiddleburyEvents@gmail.com \r\n";
 
 		$retval = mail($to, $subject, $message, $header);
@@ -83,4 +83,3 @@ mysqli_close ($con);
 	</body>
 
 </html>
-

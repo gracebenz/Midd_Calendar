@@ -1,10 +1,14 @@
+<!--
+Sam Hage
+Grace Benz
+Khi Chou
+Alexa Gospodinoff
+
+January 2014
+-->
 
 <?php
 	session_start();
-?>
-
-<?php 
-
 /**
  * simple method to encrypt or decrypt a plain text string
  * initialization vector(IV) has to be the same when encrypting and decrypting
@@ -134,7 +138,6 @@ if(isset($_POST['register-submit'])){
 					//echo "username: ".$username."<br>";
  
 					$_SESSION['username'] = $username;
-					
 					echo "Login Successful.";
 					
 					
@@ -176,5 +179,4 @@ if(isset($_POST['register-submit'])){
 </form>
 </body>
 </html>
-
 
