@@ -34,11 +34,15 @@ January 2014
 				$result_today = mysqli_query($con, $sql);
 		}
 		$row = mysqli_fetch_array($result_today);
-		
+		?>
+		<div id="showAll">
+		<span id="descriptor">
+		<?php
 		echo "Name: $row[Name]<br>Location: $row[Location]
 		<br>Organization: $row[Organization]<br>Date: $row[Date]<br>Start time: $row[StartTime]
-		<br>End time: $row[EndTime]<br>Description: $row[Description]<br><br>";
-		
+		<br>End time: $row[EndTime]<br>Description: $row[Description]<br><br>";?>
+		<span>
+		<?php
 		if ($row[Approved] == 0 /*AND logged in as administrator*/) {?>
 			<a href="approved.php?EID=<?php echo $row[EID];?>">Approve this event<br><br></a>
 		<?php
@@ -52,5 +56,6 @@ January 2014
 		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
+		<div>
 	</body>
 </html>

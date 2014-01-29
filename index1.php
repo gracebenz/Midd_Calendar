@@ -17,7 +17,7 @@
 <body>
 
 <div id="loginFields">
-	<form action="creator.php" method="post">
+	<form action="index1.php" method="post">
 		<input type="text" name="Username" placeholder="username" required/> @middlebury.edu
 		<input type="password" name="Password" placeholder="password" required/>
 		<input type="submit" name="register_submit" value="Login"/>
