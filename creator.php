@@ -81,7 +81,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 		<input type="submit" name="register_submit" value="Create"/>
 		</form>
 		
-		<form action="index1.php" method="post">
+		<form action="mainPage.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		
@@ -111,7 +111,7 @@ if(isset($_POST['register_submit']))
 			}
 			
 		
-		$to = $username."@middlebury.edu,MiddleburyEvents@gmail.com";
+		$to = $username."@middlebury.edu";
 		$subject = "Midd Events Signup Confirmation";
 		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!\r\n\r\n";
 		if ($_POST['Admin'] == "yes")
@@ -119,12 +119,23 @@ if(isset($_POST['register_submit']))
 			$message = $message."You have requested administrator status.";
 			}
 		$header = "From:MiddleburyEvents@gmail.com \r\n";
-		$retval = mail($to, $subject, $message, $header);
 
+		
+		$tp = "MiddleburyEvents@gmail.com";
+		$messagf = .$username." has registered as a creator."
+		if ($_POST['Admin'] == "yes")
+			{
+			$messagf = $messagf." They have requested administrator status. To confirm their administrator request, click the following link: http://www.cs.middlebury.edu/~agospodinoff/adminConfirm.php?Username=".$username;
+			}
+
+
+		$retval = mail($to, $subject, $message, $header);
+		
 		if($retval == true)  
 			{
 			echo "Account creation successful. <br />";
 			echo "Please check your email address for a confirmation email.";
+			$retvam = mail($tp, $subject, $messagf, $header);
 			}
 		else
 			{
