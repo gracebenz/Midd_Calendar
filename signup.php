@@ -19,7 +19,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>
+		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
 		<title>Email Signup</title>
 	</head>
 
@@ -39,7 +39,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 		
 		Username: <input type="text" name="Username" required/> @middlebury.edu<br><br>		
 		
-		<input type="submit" name="register_submit" value="Create"/>
+		<input type="submit" name="register_submit" value="Subscribe"/>
 		</form>
 		</div>
 		
@@ -57,10 +57,11 @@ if(isset($_POST['register_submit']))
 			die('Error: ' . mysqli_error($con));
 			}
 		
+		
 		$to = $username."@middlebury.edu";
-		$subject = "This is subject";
-		$message = "This is simple text message.";
-		$header = "From:khz1993@yahoo.com \r\n";
+		$subject = "Midd Events Subscription Confirmation";
+		$message = "You are successfully subscribed!";
+		$header = "From:MiddleburyEvents@gmail.com \r\n";
 
 		$retval = mail($to, $subject, $message, $header);
 

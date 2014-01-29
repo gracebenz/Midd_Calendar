@@ -83,7 +83,7 @@ January 2014
 			while ($hour < 25) {
 			
 				//declare query and check connection		
-				$sql = "SELECT Name, StartTime, EndTime, EID FROM Events WHERE Date='".$date."'";
+				$sql = "SELECT * FROM Events WHERE Date='".$date."'";
 				
 				if (!mysqli_query($con, $sql)) {
 					die('Error: ' . mysqli_error());
@@ -109,10 +109,10 @@ January 2014
 	   					$sTime = substr($row[StartTime], 0, 2);
 	   				}
 	   				
-	   				if (($sTime >= $hour) and ($sTime < ($hour+1))){
+	   				if (($sTime >= $hour) and ($sTime < ($hour+1)) and $row[Approved] == 1){
 	   					//only print the hour the first time, and only if there are events in that hour
 	   					if ($displayHour == true) {
-	   						echo "<br>".$printHour."<br>";
+	   						echo "<br><br>".$printHour."<br>";
 	   						$displayHour = false;
 	   					}
 	 					echo $row[StartTime]." - ";
@@ -121,10 +121,7 @@ January 2014
 	 					?>
 	 					<a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a>
 	 					<?php
-	 					
-	 					
-	 				}
-	 					
+	 				}	
 				}
 				$hour++;
 			}

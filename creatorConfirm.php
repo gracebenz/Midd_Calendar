@@ -63,69 +63,44 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 	<body>
 
 		<div id="header">
-			<h2>Creator Registration</h2>
+			<h2>Creator Confirmation</h2>
 		</div>
-		
-		<div class="left"></div>
-		<div class="right"></div>
-		<div id="footer"></div>
-		
 
 		<div id="forms">
-		<form action="creator.php" method="post">
-		Username: <input type="text" name="Username" required/> @middlebury.edu<br><br>		
-		Password: <input type="password" name="Password" required/><br><br>
-		Confirm Password: <input type="password" name="Password2" required/><br><br>
+		<form action="creatorConfirm.php" method="post">
+		Username: <input type="text" name="username"/><br /><br />
+		Confirmation PIN: <input type="text" name="pin"/><br /><br />
 
-		<input type="submit" name="register_submit" value="Create"/>
+		<input type="submit" name="confirm_submit" value="Confirm"/>
 		</form>
 		
 		<form action="mainPage.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
-		
 		</div>
 		
 		<div>
 
 <?php
-if(isset($_POST['register_submit']))
+if(isset($_POST['confirm_submit']))
 	{
-	if ($_POST['Password'] != $_POST['Password2']) 
+	$username = $con->real_escape_string($_POST['username']);
+	$pin = $con->real_escape_string($_POST['pin']); 
+	$cnfrmpin = encrypt_decrypt('encrypt', $username);
+	
+	if ($pin == $cnfrmpin)
 		{
-		echo 'Error: passwords do not match.';
-		}
-	else
-		{
-		$username = $con->real_escape_string($_POST['Username']);
-		$cnfrmpin = encrypt_decrypt('encrypt', $username);
-		$password = $con->real_escape_string($_POST['Password']);
-		$encrpass = encrypt_decrypt('encrypt', $password);
-		
-		$sql = "INSERT INTO Creators (Username, Password) 
-		VALUES ('$username', '$encrpass')";
-		if (!mysqli_query($con, $sql)) 
-			{
+		$sql = "UPDATE Creators SET Confirmed=1 WHERE Username ='". $username."'";
+		if(!mysqli_query($con,$sql)){
 			die('Error: ' . mysqli_error($con));
-			}
-			
-		
-		$to = $username."@middlebury.edu";//, "MiddleburyEvents@gmail.com";
-		$subject = "Midd Events Signup Confirmation";
-		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!";
-		$header = "From:MiddleburyEvents@gmail.com \r\n";
-		$retval = mail($to, $subject, $message, $header);
-
-		if($retval == true)  
-			{
-			echo "Account creation successful. <br />";
-			echo "Please check your email address for a confirmation email.";
-			}
-		else
-			{
-			echo "Message could not be sent...";
-			}
+		}	
+		echo "Thank you!";
 		}
+	else 
+		{
+		echo "Please try again.";
+		}
+
 	}
 
 mysqli_close ($con);

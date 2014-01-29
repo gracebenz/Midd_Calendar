@@ -10,9 +10,9 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 ?>
 <html>
-<head>
-<title> Yosaf! </title>
-</head>
+	<head>
+		<title>User Confirmation</title>
+	</head>
 
 <body>
 
@@ -30,8 +30,11 @@ Enter your pin:<input type = "text" name = "pin" />
 if(isset($_POST['confirm_submit']))
 {
 
-	if ($_POST['pin']== '123'){
-		
+	$pin = $_GET["pin"]; 
+
+	//if ($_POST['pin']== '123'){
+	
+	if ($pin == 	
 		$sql =	"UPDATE Creators SET Confirmed=1 WHERE Username ='". $_POST[username]."'";
 		if(!mysqli_query($con,$sql)){
 			die('Error: ' . mysqli_error($con));
