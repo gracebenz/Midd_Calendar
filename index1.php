@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Midd Calenddar</title>
+  <title>Midd Calendar</title>
 
   <link rel="stylesheet" type="text/css" media="all" href="styles.css">
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -38,7 +38,7 @@
 </div>
 
 
-<div id="everything">
+
 <div class="container">
 	<h1>Middlebury Calendar</h1>
 </div>
@@ -122,7 +122,6 @@
 		</ul>
 
 	</div>
-</div>
 </div>
 </div>
 
