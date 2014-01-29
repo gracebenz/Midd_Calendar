@@ -119,16 +119,28 @@ if(isset($_POST['register-submit']))
 <!doctype html>
 <html lang="en-US">
 <head>
+	<!-- calendar widget 
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+--> 
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Midd Calendar</title>
 
   <link rel="stylesheet" type="text/css" media="all" href="styles.css">
-<script type="text/javascript" src="js/jquery.js"></script>
+  <!--<script type="text/javascript" src="js/jquery.js"></script>-->
 </head>
 
 <body>
+
+
 
 <div id="loginFields">
 	<form method="post" action="index1.php">
@@ -142,15 +154,7 @@ if(isset($_POST['register-submit']))
 		<input type="submit" name="register-submit" value="Login">
 		<input type="submit" name="Logout" value="logout"/>
 		
-		<!--
-		<div id="searchBar">
-		<form id="search" method="post" action="search.php">
-			<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
-			<input type="submit" value="search" class="button">
-		</form>
-		<div class="clear"></div>
-	</div>	
-	-->
+
 	
 	</form>
 <!--
@@ -224,14 +228,39 @@ if ($month < 10)
 
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
+			?>
+				<!-- calendar widget --> 
+			<div class="calendar">
+			<form action="index1.php" method="post">
+   			<p>Search by Date: <input type="text" id="datepicker" name="searchDate">
+   			
+   				<input type="submit" value="search" class="button">
+   			</form>
+   			</p>
+   			 
+			<script>
+			$( "#datepicker" ).datepicker();
+			</script>
 			
-			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
-
+			
+			
+			<?php
+			$searchDate = $_POST[searchDate]; 
+			echo $earchDate;
+			?>
+			
+			Events for: <?php echo $searchDate;?>
+						
+			<?php 
+			
+			if (searchDate== NULL) {
+				$searchDate = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
+			}
 			
 			$hour=0;
 			$count=1;
 			while ($hour < 25) {
-				$sql = "SELECT Name, StartTime, EndTime, EID, Description FROM Events WHERE Date='".$date."'";
+				$sql = "SELECT Name, StartTime, EndTime, EID, Description FROM Events WHERE Date='".$searchDate."'";
 				
 				if (!mysqli_query($con, $sql)) {
 					die('Error: ' . mysqli_error());
