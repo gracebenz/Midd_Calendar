@@ -139,8 +139,19 @@ if(isset($_POST['register-submit']))
         <label for="password"></label>
         <input type="password" name="password" id="password" placeholder="password" required/>
    
-	<input type="submit" name="register-submit" value="Login">
-	<input type="submit" name="Logout" value="logout"/>
+		<input type="submit" name="register-submit" value="Login">
+		<input type="submit" name="Logout" value="logout"/>
+		
+		<!--
+		<div id="searchBar">
+		<form id="search" method="post" action="search.php">
+			<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
+			<input type="submit" value="search" class="button">
+		</form>
+		<div class="clear"></div>
+	</div>	
+	-->
+	
 	</form>
 <!--
 	<form action="index1.php" method="post">
@@ -179,13 +190,16 @@ if ($month < 10)
 	<h3><?php echo $weekday[date(w)].", ".$monthName[$month - 1]." ".date(d).", 20".date(y)."<br>";?></h3>
 </div>
 
+	
 	<div id="searchBar">
 		<form id="search" method="post" action="search.php">
 			<input type="text" class="textinput" name="searchInput" size="21" maxlength="120">
 			<input type="submit" value="search" class="button">
 		</form>
 		<div class="clear"></div>
+		<br>
 	</div>	
+	
 
 <div id="main" class = "container">
 <div id="main1" class="container">
