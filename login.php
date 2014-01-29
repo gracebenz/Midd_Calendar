@@ -1,34 +1,17 @@
 
-<?php session_start();
+<?php 
 
+<<<<<<< HEAD
 // store session data
 //$_SESSION["username2"] = "SmellyCat2";
+=======
+session_start(); 
+>>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 
 
-//$_SESSION["username2"] = "me";
+?>
 
-/*
-if(session_id() == '')
- {
-      // session has NOT been started
-      $_SESSION["username"] = "SmellyCat";
-	echo "hey";
- }
- else
- {
-	echo $_SESSION["username"];      
-	// session has been started
- }
-*/
-
-//if(isset($_POST['Logout'])){
-//	session_destroy();
-
-//}
-
-//echo $_SESSION["username"];
-//echo $_SESSION["type"];
-
+<?php 
 
 /**
  * simple method to encrypt or decrypt a plain text string
@@ -148,18 +131,23 @@ if(isset($_POST['register-submit'])){
 				//check if decrypted_txt == password
 				if($fetchedpass == $password){
 		
-					if ($admin == 1){
+					//if ($admin == 1){
 						$_SESSION["type"] = "Admin";
 					
-					}
-					else{
-						$_SESSION["type"] = "Creator";
-					}
+					//}
+					//else{
+					//	$_SESSION["type"] = "Creator";
+					//}
 
 					//echo "username: ".$username."<br>";
  
+<<<<<<< HEAD
 					$_SESSION["username"] = $username;
 					echo "session: ".$_SESSION["username"]."<br>";
+=======
+					$_SESSION['username'] = $username;
+					
+>>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 					echo "Login Successful.";
 					
 					
