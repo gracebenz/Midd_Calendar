@@ -74,7 +74,7 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 		<input type="submit" name="confirm_submit" value="Confirm"/>
 		</form>
 		
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		</div>

@@ -1,6 +1,8 @@
+
 <?php
 session_start();
 ?>
+
 
 <!--
 Sam Hage
@@ -64,7 +66,11 @@ January 2014
 			<input type="radio" name="locationAppr" value="not approved"/>No<br><br>	
 		Organization: <input type="text" name="eventOrganization" required/><br><br>
 
+<<<<<<< HEAD
 		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="200"></textarea><br><br>
+=======
+		Description: <br><textarea name="eventDescription" rows="5" cols="40" maxlength="500"></textarea><br>
+>>>>>>> d13dc13a3ae3fa4b5146c3aec905d4ab8cb91dbe
 		Enter tags separated by commas:<br>(a capella, basketball, food, etc.)
 		<br><textarea name="tags" rows="5" cols="40" maxlength="200"></textarea><br>
 		</div>
@@ -73,7 +79,7 @@ January 2014
 		<input type="submit" value="Create"/><br><br>
 		</form>
 		
-		<form action="mainPage.php" method="post">
+		<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 		</form>
 		

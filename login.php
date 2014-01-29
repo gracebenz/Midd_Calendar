@@ -173,7 +173,7 @@ if(isset($_POST['register-submit'])){
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
-	<form action="mainPage.php" method="post">
+	<form action="index1.php" method="post">
 			<input type="submit" value="Return to Calendar"/>
 	</form>
 </form>
