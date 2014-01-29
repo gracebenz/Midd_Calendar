@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en-US">
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Midd file</title>
+  <title>Midd Calenddar</title>
 
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="styles.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
@@ -124,6 +125,7 @@
 </div>
 </div>
 </div>
+
 
 
 <script type="text/javascript">

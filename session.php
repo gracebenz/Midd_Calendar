@@ -2,7 +2,8 @@
 
 // store session data
 $_SESSION["username"] = "Guest";
-header("Location: http://www.cs.middlebury.edu/~khihuac/mainPage.php")
+$_SESSION["type"] = "Guest";
+header("Location: http://www.cs.middlebury.edu/~khihuac/index1.php")
 
 ?>
 

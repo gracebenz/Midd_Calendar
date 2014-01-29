@@ -25,8 +25,8 @@ function encrypt_decrypt($action, $string) {
     $output = false;
 
     $encrypt_method = "AES-256-CBC";
-    $secret_key = 'This is my secret key';
-    $secret_iv = 'This is my secret iv';
+    $secret_key = 'This is our secret key';
+    $secret_iv = 'This is our secret iv';
 
     // hash
     $key = hash('sha256', $secret_key);
@@ -73,9 +73,10 @@ $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("
 
 		<div id="forms">
 		<form action="creator.php" method="post">
-		Username: <input type="text" name="Username" required/> @middlebury.edu<br><br>		
-		Password: <input type="password" name="Password" required/><br><br>
-		Confirm Password: <input type="password" name="Password2" required/><br><br>
+		Username: <input type="text" name="Username" required/> @middlebury.edu<br /><br />
+		Password: <input type="password" name="Password" required/><br /><br />
+		Confirm Password: <input type="password" name="Password2" required/><br /><br />
+		<input type="checkbox" name="Admin" value="yes" />I am an administrator of events scheduling for Middlebury.<br /><br />
 
 		<input type="submit" name="register_submit" value="Create"/>
 		</form>
@@ -110,9 +111,13 @@ if(isset($_POST['register_submit']))
 			}
 			
 		
-		$to = $username."@middlebury.edu";//, "MiddleburyEvents@gmail.com";
+		$to = $username."@middlebury.edu,MiddleburyEvents@gmail.com";
 		$subject = "Midd Events Signup Confirmation";
-		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!";
+		$message = "Hi, ".$username."!\r\n\r\nLooks like you recently signed up to create events for the Middlebury Events Calendar. To confirm your account, please visit the following page:\r\n\r\nhttp://www.cs.middlebury.edu/~agospodinoff/creatorConfirm.php\r\n\r\nYour confirmation PIN is:\r\n\r\n".$cnfrmpin."\r\n\r\nThanks and welcome to the calendar!\r\n\r\n";
+		if ($_POST['Admin'] == "yes")
+			{
+			$message = $message."You have requested administrator status.";
+			}
 		$header = "From:MiddleburyEvents@gmail.com \r\n";
 		$retval = mail($to, $subject, $message, $header);
 

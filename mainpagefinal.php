@@ -3,18 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Image Rotator w/ Desc - CSS &amp; jQuery Tutorial</title>
-  <link rel="shortcut icon" href="http://designm.ag/favicon.ico">
-  <link rel="icon" href="http://designm.ag/favicon.ico">
+  <title>Midd file</title>
+
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
 <body>
-<div class="container">
-	<h1>Image Gallery w/ Teaser - CSS &amp; jQuery Tutorial</h1>
-</div>
-<div id="main" class="container">
+
+<div id="main" class = "container">
+<div id="main1" class="container">
 	<div class="main_image">
 		<img src="images/banner01.png" alt="- banner1" />
 		<div class="desc">
@@ -27,6 +25,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div id="main2" class="container">
 	<div class="image_thumb">
 		<ul>
 			<li>
@@ -82,19 +82,17 @@
 		</ul>
 	</div>
 </div>
-<div class="container">
-	<p style="color: #fff; font-size: 1.2em; padding: 10px 0; float: right;">Tutorial by <a href="http://www.sohtanaka.com/" style="color: #fff;">Soh Tanaka</a> - Updated by <a href="http://byjakewithlove.com/" style="color: #fff;">Jake Rocheleau</a><br />
-</p>
+
 </div>
 
 <script type="text/javascript">
 var intervalId;
-var slidetime = 2500; // milliseconds between automatic transitions
+var slidetime = 5000; // milliseconds between automatic transitions
 
 $(document).ready(function() {	
 
   // Comment out this line to disable auto-play
-	intervalID = setInterval(cycleImage, slidetime);
+	//intervalID = setInterval(cycleImage, slidetime);
 
 	$(".main_image .desc").show(); // Show Banner
 	$(".main_image .block").animate({ opacity: 0.85 }, 1 ); // Set Opacity

@@ -1,17 +1,15 @@
+<!--
+Sam Hage
+Grace Benz
+Khi Chou
+Alexa Gospodinoff
+
+January 2014
+-->
 
 <?php 
 
-<<<<<<< HEAD
-// store session data
-//$_SESSION["username2"] = "SmellyCat2";
-=======
 session_start(); 
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
-
-
-?>
-
-<?php 
 
 /**
  * simple method to encrypt or decrypt a plain text string
@@ -62,110 +60,68 @@ define('DB_DATABASE','khihuac_Calendar');
 $mysqli = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
 
-if(isset($_POST['register-submit'])){
-  	//Create an errors array
-	$errors = array();
+if(isset($_POST['register-submit']))
+	{
+  	$username = $mysqli->real_escape_string($_POST['username']);
+	$password = $mysqli->real_escape_string($_POST['password']);
+	 	
+	//encrypt the password
+    	$encrpass = encrypt_decrypt('encrypt', $password);
 
-	//Check to make sure the fields are not empty
-	if(empty($_POST['username'])){
-        	$errors[] = "Please enter a username";
-		echo "dude enter some username";
-    	}
-	else{
-   		$username = $mysqli->real_escape_string($_POST['username']);
-	}
-
-	if(empty($_POST['password'])){
-    		$errors[] = "Please enter a password";
-		echo "bro, why no password? Do you even english?";
-	}else{
-        	$password = $_POST['password'];
 		
-		
-	}
-
- 	   //If there are no errors
-    	if(empty($errors)){
-		//encrypt the password
-    		$encrypted_txt = encrypt_decrypt('encrypt', $password);
-		
-		//get the row corresponding to this user
-   		$sql = "SELECT Password FROM Creators WHERE Username ='". $_POST[username]."'";
-		$sql1 = "SELECT Confirmed FROM Creators WHERE Username ='". $_POST[username]."'";
-		$sql2 = "SELECT Administrator FROM Creators WHERE Username ='". $_POST[username]."'";
-    		 
-		if (!mysqli_query($mysqli, $sql) || !mysqli_query($mysqli, $sql1)){
-  			echo "Registration Error: ";
-			die('Error: ' . mysqli_error($mysqli));
+	//get the row corresponding to this user
+   	$sql = "SELECT Password FROM Creators WHERE Username ='".$username."'";
+	$sql1 = "SELECT Confirmed FROM Creators WHERE Username ='".$username."'";
+	$sql2 = "SELECT Administrator FROM Creators WHERE Username ='".$username."'";
+    	 
+	if (!mysqli_query($mysqli, $sql) || !mysqli_query($mysqli, $sql1))
+		{ 		
+		die('Error: ' . mysqli_error($mysqli));
 		}
-		else{
-			
-			//result will be rows corresponding to this user
-			$result = mysqli_query($mysqli,$sql);	
-			$result1 = mysqli_query($mysqli,$sql1);
-			$result2 = mysqli_query($mysqli,$sql2);
+	else
+		{
+		//result will be rows corresponding to this user
+		$result = mysqli_query($mysqli,$sql);	
+		$result1 = mysqli_query($mysqli,$sql1);
+		$result2 = mysqli_query($mysqli,$sql2);
+	
+		//row will be single row for this result
+		$row = mysqli_fetch_array($result);
+		$row1 = mysqli_fetch_array($result1);
+		$row2 = mysqli_fetch_array($result2);
+	
+		$confirmed = $row1[0];
+		$admin = $row2[0];
 		
-			//row will be single row for this result
-			$row = mysqli_fetch_array($result);
-			$row1 = mysqli_fetch_array($result1);
-			$row2 = mysqli_fetch_array($result2);
-			//echo $row[];
 		
-			$confirmed = $row1[0];
-			$admin = $row2[0];
-			
-			
-			if($confirmed == 1){
-
-	//}
-	//else{
-				$fetchedpass = $row[0];			
-
-				//echo "fetched password: $fetchedpass <br> <br>";
-		
-				//decrypted_txt is decrypted password (result)
-				//$decrypted_txt = encrypt_decrypt('decrypt', $fetchedpass);	
-
-				//echo "decrypted_txt: $decrypted_txt <br> <br>";
-
-				//check if decrypted_txt == password
-				if($fetchedpass == $password){
-		
-					//if ($admin == 1){
-						$_SESSION["type"] = "Admin";
-					
-					//}
-					//else{
-					//	$_SESSION["type"] = "Creator";
-					//}
-
-					//echo "username: ".$username."<br>";
- 
-<<<<<<< HEAD
-					$_SESSION["username"] = $username;
-					echo "session: ".$_SESSION["username"]."<br>";
-=======
-					$_SESSION['username'] = $username;
-					
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
-					echo "Login Successful.";
-					
-					
-		
-					
+		if($confirmed == 1)
+			{
+			$fetchedpass = $row[0];
+						
+			if($fetchedpass == $encrpass)
+				{
+				if ($admin == 1){
+					$_SESSION["type"] = "Admin";
+				
 				}
 				else{
-					echo "Invalid Username and/or Password.";
+					$_SESSION["type"] = "Creator";
+				}
+					
+					$_SESSION['username'] = $username;
+					echo "Login Successful.";
+				}
+			else
+				{
+				echo "Invalid Username and/or Password.";
 				}
 			}
-			else{
-				echo "Invalid Username and/or Password.";
+		else
+			{
+			echo "Invalid Username and/or Password.";
 			}
 		}
-
-   	 }
-}
-
+	}
 ?>
 
 
@@ -176,10 +132,10 @@ if(isset($_POST['register-submit'])){
 <form method="post" action="login.php">
     
         <label for="username">Username</label>
-        <input type="text" name="username" id="username"> <br> <br>
+        <input type="text" name="username" id="username" required /> <br> <br>
    
         <label for="password">Password</label>
-        <input type="password" name="password" id="password"> <br> <br>
+        <input type="password" name="password" id="password" required/> <br> <br>
    
 	<input type="submit" name="register-submit" value="Login">
 	<input type="submit" name="Logout" value="logout"/>
