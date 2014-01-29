@@ -7,9 +7,4 @@ header("Location: http://www.cs.middlebury.edu/~khihuac/mainPage.php")
 ?>
 
 <html>
-<body>
-
-
-
-</body>
 </html>

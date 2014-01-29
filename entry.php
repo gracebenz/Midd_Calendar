@@ -1,15 +1,7 @@
-<?php 
-<<<<<<< HEAD
+<?php
 session_start();
 echo $_SESSION["username"];
 ?>
-
-=======
-
-session_start(); 
-echo $_SESSION['username'];
-?>
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 
 <!--
 Sam Hage
