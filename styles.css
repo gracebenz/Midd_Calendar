@@ -1,11 +1,11 @@
 * {
-margin: 0;
-padding: 0;
-outline: none;
+	margin: 0;
+	padding: 0;
+	outline: none;
 }
 
 body {
-	background: #cc0000;
+	background-image: url("images/background_wildlife.jpg");
 	margin: 0; padding: 0;
 	font: 10px normal "Helvetica Neue", Arial, sans-serif;
 }
@@ -14,16 +14,87 @@ img {
 	border: none;
 }
 
-h1 {
-	font: 3em normal Georgia, "Times New Roman", Times, serif;
-	color: #fff;
+#date {
+	font-size: 2em;
 	text-align: center;
-	font-style: italic;
-	margin: 40px 0 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a:link {
+	color: #961B0B;
+	text-decoration: none;
+}
+
+a:visited {
+	color: grey;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0A4FA8;
+	text-decoration: none;
+}
+
+#searchBar {
+	display: inline-block;
+}
+
+#searchHeader > div {
+	display: inline-block;
+	float: right;
+}
+
+#searchHeader {
+	display: inline-block;
+	float: right;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+#searchHeader a:link {
+	color: #A52A2A;
+	text-decoration: none;
+	font-size: 1.3em;
+	padding: 3px 3px 3px 3px;
+}
+
+#searchHeader a:visited {
+	color: black;
+	text-decoration: none;
+	font-size: 1.3em;
+	padding: 3px 3px 3px 3px;
+}
+
+#searchHeader a:hover {
+	color: #0A4FA8;
+	text-decoration: none;
+	font-size: 1.3em;
+	padding: 3px 3px 3px 3px;
+}
+
+#searchBar {
+	padding: 5px 5px 5px 5px;
+}
+
+h1 {
+	font: 4em normal "Futura", Arial, sans-serif;
+	color: black;
+	text-align: center;
+	margin: 40px 0 
+	0px;
+	padding-bottom: 0px;
+}
+
+h3 {
+	font: 2em normal "Futura", Arial, sans-serif;
+	color: black;
+	text-align: center;
+	margin: 0px 0 40px;
 }
 
 .container {
-	overflow:hidden;
+	overflow: hidden;
 	width: 915px;
 	margin: 0 auto;
 }
@@ -79,8 +150,7 @@ a {
 }
 
 .block small { 
-	padding:  0px; 
-	background: url(images/icon_cal.gif) no-repeat 0 center; 
+	padding:  0px;  
 	font-size: 1em; 
 }
 

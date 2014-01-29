@@ -1,7 +1,11 @@
-<?php 
 
+<?php
 session_start();
-echo $_SESSION["username"];
+echo $_SESSION["type"];
+if ($_SESSION["type"] == "Creator" {
+	echo "Create an account to create events";
+	break;
+}
 ?>
 
 
@@ -31,8 +35,6 @@ January 2014
 		});
 		</script>
 		<!---->
-		
-	
 		
 	</head>
 

@@ -1,18 +1,14 @@
+<!--
+Sam Hage
+Grace Benz
+Khi Chou
+Alexa Gospodinoff
 
-<?php 
+January 2014
+-->
 
-<<<<<<< HEAD
-// store session data
-//$_SESSION["username2"] = "SmellyCat2";
-=======
-session_start(); 
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
-
-
-?>
-
-<?php 
-
+<?php
+	session_start();
 /**
  * simple method to encrypt or decrypt a plain text string
  * initialization vector(IV) has to be the same when encrypting and decrypting
@@ -131,23 +127,17 @@ if(isset($_POST['register-submit'])){
 				//check if decrypted_txt == password
 				if($fetchedpass == $password){
 		
-					//if ($admin == 1){
+					if ($admin == 1) {
 						$_SESSION["type"] = "Admin";
 					
-					//}
-					//else{
-					//	$_SESSION["type"] = "Creator";
-					//}
+					}
+					else {
+						$_SESSION["type"] = "Creator";
+					}
 
 					//echo "username: ".$username."<br>";
  
-<<<<<<< HEAD
-					$_SESSION["username"] = $username;
-					echo "session: ".$_SESSION["username"]."<br>";
-=======
 					$_SESSION['username'] = $username;
-					
->>>>>>> 738251fd46d8e35033c7acbab021c1b8cb65dbdd
 					echo "Login Successful.";
 					
 					
@@ -189,5 +179,4 @@ if(isset($_POST['register-submit'])){
 </form>
 </body>
 </html>
-
 
