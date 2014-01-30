@@ -29,16 +29,19 @@ mysqli_close ($con);
 
 <html>
 	<head>
-		<!--<link type="text/css" rel="stylesheet" href="entryStylesheet.css"/>-->
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 		<title>Unsubscribe</title>
 	</head>
 
 	<body>
 
-		<div id="header">
-			<h2>Unsubscribe</h2>
+		<div id="otherPage">
+		You have been unsubscribed from the Midd Events email list.
+		<br /><br />
+		<form action="index1.php" method="post">
+			<input type="submit" value="Return to Calendar"/>
+		</form>
 		</div>
-
 	</body>
 
 </html>
