@@ -35,7 +35,7 @@ January 2014
 		}
 		
 		while($row = mysqli_fetch_array($result_today)) {?>
-			<span id="descriptor"><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a></span>
+			<span id="bigDescriptor"><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a></span>
 		<?php
 		}
 		?>

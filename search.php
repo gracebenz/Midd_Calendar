@@ -45,7 +45,7 @@ January 2014
 	
 				while($row = mysqli_fetch_array($searchResult)) {
 					if ($row[Approved] == 1) {
-						?><span id="descriptor"><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
+						?><span id="bigDescriptor"><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name]."<br>";?></a><?php
 						echo $row[StartTime]."-".$row[EndTime]."<br>";
 						echo $row[Location]."<br><br>";?>
 						</span><?php
