@@ -243,11 +243,11 @@ $today = date(m)."/".date(d)."/20".date(y);
 			
 			$searchDate = $_POST[searchDate]; 
 			
-			//$searchDate = $today; 
+			/*$searchDate = $today; 
 			if ($searchDate==null) {
 				//$searchDate = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
 				$searchDate = $_POST[searchDate]; 
-			}
+			}*/
 			
 			
 			
@@ -283,7 +283,7 @@ $today = date(m)."/".date(d)."/20".date(y);
 	   					//if ($row[Approved] == 1) {
 						?>
 							<li>
-							<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
+							<a href="images/banner<?php echo $count;?>.png"><img src="images/calendar-icon.jpeg" alt="Luigi Mansion" /></a>
 							<div class="block">
 							
 							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
