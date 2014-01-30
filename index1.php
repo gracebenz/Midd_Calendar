@@ -119,7 +119,10 @@ if(isset($_POST['register-submit']))
 <!doctype html>
 <html lang="en-US">
 <head>
+<!-- calendar widget --> 
 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Midd Calendar</title>
@@ -140,8 +143,12 @@ if(isset($_POST['register-submit']))
         <input type="password" name="password" id="password" placeholder="password" required/>
    
 		<input type="submit" name="register-submit" value="Login">
-	
-	</form>
+<!--
+	<form action="index1.php" method="post">
+		<input type="text" name="username" placeholder="username" required/> @middlebury.edu
+		<input type="password" name="password" placeholder="password" required/>
+		<input type="submit" name="register_submit" value="Login"/>
+-->
 </div>
 
 <div id="searchHeader">
@@ -166,6 +173,7 @@ $monthName = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","
 $month = date(m);
 if ($month < 10)
 	$month = substr($month, 1, 2);
+$today = date(m)."/".date(d)."/20".date(y);
 ?>
 
 <div class="container">
@@ -207,10 +215,40 @@ if ($month < 10)
 
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
-			
+		
 			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
 
+			?>
 			
+			<!-- calendar widget --> 
+			<div class="calendar">
+			<form action="index1.php" method="post">
+   			<p>Search by Date: <input type="text" id="datepicker" name="searchDate">
+   				<input type="submit" value="search" class="button">
+   			</form>
+   			</p>
+   			 
+			<script>
+			$( "#datepicker" ).datepicker();
+			</script>
+			
+			
+			<?php
+			
+			$searchDate = $_POST[searchDate]; 
+			
+			//$searchDate = $today; 
+			if ($searchDate==null) {
+				//$searchDate = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
+				$searchDate = $_POST[searchDate]; 
+			}
+			
+			
+			
+			?>
+			Events for: <?php echo $searchDate;?>			
+			<?php 
+					
 			$hour=0;
 			$count=1;
 			while ($hour < 25) {
@@ -238,7 +276,7 @@ if ($month < 10)
 	   					//if ($row[Approved] == 1) {
 						?>
 							<li>
-							<a href="images/banner<?php echo $count;?>.png"><img src="images/calendar-icon.jpg" alt="Luigi Mansion" /></a>
+							<a href="images/banner<?php echo $count;?>.png"><img src="images/banner01_thumb.png" alt="Luigi Mansion" /></a>
 							<div class="block">
 							
 							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
