@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if($_SESSION['type'] != "Guest"){
+		echo "Welcome ".$_SESSION['username']."!"; 
+	}
 ?>
 <?php 
 
@@ -95,11 +98,11 @@ if(isset($_POST['register-submit']))
 			if($fetchedpass == $encrpass)
 				{
 				if ($admin == 1){
-					$_SESSION["type"] = "Admin";
+					$_SESSION['type'] = "Admin";
 				
 				}
 				else{
-					$_SESSION["type"] = "Creator";
+					$_SESSION['type'] = "Creator";
 				}
 					$_SESSION['username'] = $username;
 					echo "Login Successful.";
@@ -119,10 +122,7 @@ if(isset($_POST['register-submit']))
 <!doctype html>
 <html lang="en-US">
 <head>
-<!-- calendar widget --> 
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Midd Calendar</title>
@@ -131,24 +131,26 @@ if(isset($_POST['register-submit']))
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
-<body background="images/ink.jpg">
+<body>
 
 <div id="loginFields">
+	
+	
 	<form method="post" action="index1.php">
-    
+    	
+	<?php if($_SESSION['type'] == "Guest"){?>
+
         <label for="username"></label>
         <input type="text" name="username" id="username" placeholder="username" required />
    
         <label for="password"></label>
         <input type="password" name="password" id="password" placeholder="password" required/>
-   
-		<input type="submit" name="register-submit" value="Login">
-<!--
-	<form action="index1.php" method="post">
-		<input type="text" name="username" placeholder="username" required/> @middlebury.edu
-		<input type="password" name="password" placeholder="password" required/>
-		<input type="submit" name="register_submit" value="Login"/>
--->
+   	
+	<input type="submit" name="register-submit" value="Login">
+
+	<?php }?>	
+	
+	</form>
 </div>
 
 <div id="searchHeader">
@@ -160,6 +162,12 @@ if(isset($_POST['register-submit']))
 	<div id="createEventButton">
 		<a href="entry.php">Create an event</a>
 	</div>
+	
+	<?php if($_SESSION['type'] == "Admin"){?>
+	<div id="pendingButton">
+		<a href="pending.php">Pending Events</a>
+	</div>
+	<?php }?>
 	
 	<div id="signupButton">
 		<a href="signup.php">Sign up</a>
@@ -173,7 +181,6 @@ $monthName = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","
 $month = date(m);
 if ($month < 10)
 	$month = substr($month, 1, 2);
-$today = date(m)."/".date(d)."/20".date(y);
 ?>
 
 <div class="container">
@@ -215,40 +222,10 @@ $today = date(m)."/".date(d)."/20".date(y);
 
 			$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die("Could not connect");
 
-		
+			
 			$date = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
 
-			?>
 			
-			<!-- calendar widget --> 
-			<div class="calendar">
-			<form action="index1.php" method="post">
-   			<p>Search by Date: <input type="text" id="datepicker" name="searchDate">
-   				<input type="submit" value="search" class="button">
-   			</form>
-   			</p>
-   			 
-			<script>
-			$( "#datepicker" ).datepicker();
-			</script>
-			
-			
-			<?php
-			
-			$searchDate = $_POST[searchDate]; 
-			
-			/*$searchDate = $today; 
-			if ($searchDate==null) {
-				//$searchDate = date(m)."/".date(d)."/20".date(y); //store as a variable for use in the sql query
-				$searchDate = $_POST[searchDate]; 
-			}*/
-			
-			
-			
-			?>
-			Events for: <?php echo $searchDate;?>			
-			<?php 
-					
 			$hour=0;
 			$count=1;
 			while ($hour < 25) {
@@ -276,7 +253,7 @@ $today = date(m)."/".date(d)."/20".date(y);
 	   					//if ($row[Approved] == 1) {
 						?>
 							<li>
-							<a href="images/banner<?php echo $count;?>.png"><img src="images/calendar-icon.jpeg" alt="Luigi Mansion" /></a>
+							<a href="images/banner<?php echo $count;?>.png"><img src="images/calendar-icon.jpg" alt="Luigi Mansion" /></a>
 							<div class="block">
 							
 							<h2><a href="showEvent.php?EID=<?php echo $row[EID];?>"><?php echo $row[Name];?></a></h2>
